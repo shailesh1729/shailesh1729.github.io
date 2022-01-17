@@ -13,15 +13,7 @@
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
-
-<meta property="og:title" content="All Categories · In Digits"/>
-<meta name="twitter:title" content="All Categories · In Digits">
-<meta property="og:url" content="https://www.indigits.com/categories" />
-<meta property="og:description" content="All categories of the In Digits blog" />
-<meta name="twitter:description" content="All categories of the In Digits blog">
-<meta property="og:site_name" content="In Digits" />
-<meta property="og:article:author" content="Shailesh Kumar" />
-        <title>All Categories · In Digits
+        <title>Page not found · In Digits
 </title>
         <link rel="shortcut icon" href="https://www.indigits.com/theme/images/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="https://www.indigits.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
@@ -35,8 +27,6 @@
         <link rel="apple-touch-icon" sizes="152x152" href="https://www.indigits.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" sizes="152x152" href="https://www.indigits.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
         <link href="https://www.indigits.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="In Digits - Full Atom Feed" />
-
-        <link href="https://www.indigits.com/feeds/updates.atom.xml" type="application/atom+xml" rel="alternate" title="In Digits - Updates Category Atom Feed" />
 
 
 
@@ -62,7 +52,7 @@
                                 <li ><a href="https://www.indigits.com/about">About</a></li>
                                 <li ><a href="https://www.indigits.com/research">Research</a></li>
                                 <li ><a href="https://www.indigits.com/software">Software</a></li>
-                                <li  class="active"><a href="https://www.indigits.com/categories">Categories</a></li>
+                                <li ><a href="https://www.indigits.com/categories">Categories</a></li>
                                 <li ><a href="https://www.indigits.com/tags">Tags</a></li>
                                 <li ><a href="https://www.indigits.com/archives">Archives</a></li>
                                 <li><form class="navbar-search" action="https://www.indigits.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
@@ -77,46 +67,40 @@
                     <div class="span10">
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="https://www.indigits.com/categories">All Categories</a></h1>
+    <h1>That page doesn't exist!</h1>
     </header>
 </div>
 
-
 <div class="row-fluid">
     <div class="span8 offset2">
-        <div class="accordion" id="accordion2">
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle category-title-inside-accordion collapsed" data-toggle="collapse" data-parent="#accordion2" href="#updates-ref">
-                        Updates<span class="superscript">2</span>
-                    </a>
-                </div>
-                <div id="updates-ref" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <ul class="list-articles-under-tag-category">
-                            <li itemscope>
-                                    <a href="https://www.indigits.com/paper-on-cr-sparse-published-in-joss">
-                                        Paper on CR-Sparse published in JOSS
-                                    </a>
-                                <time itemprop="dateCreated" datetime="2021-12-03T18:00:00+05:30">
-                                    Dec 03, 2021
-                                </time>
-                            </li>
-                            <li itemscope>
-                                    <a href="https://www.indigits.com/the-beginning-of-open-source-journey">
-                                        The beginning of open source journey
-                                    </a>
-                                <time itemprop="dateCreated" datetime="2014-10-17T10:30:00+05:30">
-                                    Oct 17, 2014
-                                </time>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <p>Sorry, but the page you are looking for cannot be found. It seems that the page you were trying to reach doesn't exist, or may be it has just moved, or it no longer exists.</p>
+        <p>The best thing to do is to use the search form or start again from the <a href="https://www.indigits.com">home page</a>.</p>
+        <div class="input-append">
+            <form action="https://www.indigits.com/search" onsubmit="return validateForm(this.elements['q'].value)">
+                <input type="text" class="span12" placeholder="Search" name="q" id="tipue_search_input_404">
+                <button class="btn" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    // Get Current location as the initial search item
+    var newurl = (' ' + window.location.pathname).slice(1);
+
+    // Replace "/" in path into spaces
+    var newurl = newurl.replace(/\//g, ' ');
+
+    // Remove html extension
+    var newurl = newurl.replace(/.html/g, ' ');
+
+    // Replace - by ' '
+    var newurl = newurl.replace(/\-/g, ' ');
+
+    // Fill search field with resulting string
+    document.getElementById('tipue_search_input_404').value = newurl;
+</script>
+
                     </div>
                     <div class="span1"></div>
                 </div>
@@ -140,18 +124,6 @@
                 return (query.length > 0);
             }
         </script>
-
-<script>
-    function uncollapse() {
-            $(window.location.hash).collapse({
-                toggle: true
-            })
-    }
-</script>
-
-<script>
-    uncollapse();
-</script>
     </body>
     <!-- Theme: Elegant built for Pelican
         License : MIT -->
