@@ -2,7 +2,7 @@ The beginning of open source journey
 ============================================
 
 :date: 2014-10-17 10:30
-:category: Update
+:category: Updates
 
 I have been using open source software for last 15 years I would imagine.
 Yet my own contribution to the world of open source is probably next to

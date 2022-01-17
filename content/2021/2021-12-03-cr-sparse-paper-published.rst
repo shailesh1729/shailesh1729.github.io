@@ -3,7 +3,7 @@ Paper on CR-Sparse published in JOSS
 
 
 :date: 2021-12-03 18:00
-:category: Update
+:category: Updates
 
 
 My paper titled 
