@@ -1,4 +1,4 @@
-shailesh1729.github.io
-======================
+# Commands
 
-My GITHUB website
+
+pelican --autoreload --listen
