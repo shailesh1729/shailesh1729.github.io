@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>In Digits - Updates</title><link href="https://www.indigits.com/" rel="alternate"></link><link href="https://www.indigits.com/feeds/updates.atom.xml" rel="self"></link><id>https://www.indigits.com/</id><updated>2021-12-03T18:00:00+05:30</updated><entry><title>Paper on CR-Sparse published in JOSS</title><link href="https://www.indigits.com/paper-on-cr-sparse-published-in-joss.html" rel="alternate"></link><published>2021-12-03T18:00:00+05:30</published><updated>2021-12-03T18:00:00+05:30</updated><author><name>Shailesh Kumar</name></author><id>tag:www.indigits.com,2021-12-03:/paper-on-cr-sparse-published-in-joss.html</id><summary type="html">&lt;p&gt;My paper titled
+&amp;quot;CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX&amp;quot;
+has been published in &amp;quot;The Journal of Open Source Software&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Citation: Kumar, S., (2021). CR-Sparse: Hardware accelerated functional
+algorithms for sparse signal processing in Python using JAX.
+Journal of Open Source Software, 6(68 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My paper titled
+&amp;quot;CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX&amp;quot;
+has been published in &amp;quot;The Journal of Open Source Software&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Citation: Kumar, S., (2021). CR-Sparse: Hardware accelerated functional
+algorithms for sparse signal processing in Python using JAX.
+Journal of Open Source Software, 6(68), 3917,
+&lt;a class="reference external" href="https://doi.org/10.21105/joss.03917"&gt;https://doi.org/10.21105/joss.03917&lt;/a&gt;&lt;/p&gt;
+</content><category term="Updates"></category></entry><entry><title>The beginning of open source journey</title><link href="https://www.indigits.com/the-beginning-of-open-source-journey.html" rel="alternate"></link><published>2014-10-17T10:30:00+05:30</published><updated>2014-10-17T10:30:00+05:30</updated><author><name>Shailesh Kumar</name></author><id>tag:www.indigits.com,2014-10-17:/the-beginning-of-open-source-journey.html</id><summary type="html">&lt;p&gt;I have been using open source software for last 15 years I would imagine.
+Yet my own contribution to the world of open source is probably next to
+zero.&lt;/p&gt;
+&lt;p&gt;May be it is now time to pull up the socks and start doing things.
+This blog is being setup on …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have been using open source software for last 15 years I would imagine.
+Yet my own contribution to the world of open source is probably next to
+zero.&lt;/p&gt;
+&lt;p&gt;May be it is now time to pull up the socks and start doing things.
+This blog is being setup on Github pages on October 17, 2014
+to start this journey. I have no idea how far will I be able to
+go ahead. I usually have this habit of starting projects and
+leaving them in the middle.&lt;/p&gt;
+</content><category term="Updates"></category></entry></feed>
