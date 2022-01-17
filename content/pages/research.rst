@@ -6,7 +6,7 @@ Research
 
 I am pursuing my Ph.D. from
 Indian Institute of Technology, Delhi, India
-in Electrical Engineering department.
+in Bharti School of Telecommunications.
 
 My research focus is on sparse representations
 and compressed sensing.
@@ -14,8 +14,10 @@ and compressed sensing.
 Publications
 ----------------------
 
-None yet.
-
+1. Kumar, S., (2021). CR-Sparse: Hardware accelerated functional
+   algorithms for sparse signal processing in Python using JAX. 
+   Journal of Open Source Software, 6(68), 3917, 
+   https://doi.org/10.21105/joss.03917
 
 Notes
 ------------------
@@ -35,6 +37,21 @@ All errors and omissions are purely mine.
 In case you have any feedback or any
 concern regarding these notes, please
 write to me [shailesh (at) indigits (dot) com].
+
+
+Optimization for Signal Processing
+----------------------------------------
+
+This is an online resource for people who want to get
+a deeper mathematical background into optimization 
+algorithms for signal processing.
+
+`Optimization for Signal Processing <https://convex.indigits.com>`_
+
+This work includes coverage on:
+basic set theory, real analysis, metric spaces,
+convex analysis, convex optimization algorithms, 
+etc..
 
 
 Illustrated Compressed Sensing
