@@ -3,8 +3,8 @@ About
 
 :slug: about
 
-I, Shailesh Kumar, am a part time researcher, part time developer, 
-part time manager and part time procrastinator. 
+I, Shailesh Kumar, am a part-time researcher, part-time developer, 
+part-time manager and part-time procrastinator. 
 
 
 I have around 20 years of experience in software design, 
@@ -15,7 +15,7 @@ machine learning, computer vision, cloud computing, and SaaS.
 
 I usually spend half of my day answering all the emails, 
 Skype or phone calls, chats, helping people resolve knotty issues, 
-making slides, fixing excel sheets, or filling up some or other paperwork. 
+making slides, fixing Excel sheets, or filling up some or other paperwork. 
 
 The other half is spent learning something new or building something useful. 
 I still dream that I will be able to build and 
@@ -29,7 +29,7 @@ Education
 
 I graduated in 2002 from the 
 department of Electronics and Electrical Communications Engineering,
-Indian Institute of Technology, Kharagpur, India .
+Indian Institute of Technology, Kharagpur, India.
 
 Currently, I am pursuing my part-time Ph.D. 
 from Bharti School of Telecommunications,
@@ -56,7 +56,7 @@ Programming
 ---------------
 
 I have done coding in a variety of languages: Intel assembly, TI DSP, C, C++, 
-Java, C#, Lisp, Haskell, Rust, Go, MATLAB, R, PHP, Perl, Verilog, etc..
+Java, C#, Lisp, Haskell, Rust, Go, MATLAB, R, PHP, Perl, Verilog, etc.
 
 My current workhorses are Python and JavaScript. 
 
@@ -86,3 +86,13 @@ of great scientists and engineers around the world
 I would not have been where I am without all the 
 great open-source software available to everyone. 
 I try to contribute and give back as much as I can. 
+
+
+Me on: 
+`Twitter <http://twitter.com/shailesh1729>`_ |
+`FaceBook <https://www.facebook.com/shailesh.kumar.9484>`_ |
+`LinkedIn <https://www.linkedin.com/in/shaileshkumar1729>`_ |
+`GitHub <http://github.com/shailesh1729>`_ |
+`Medium <https://shaileshk.medium.com>`_ |
+`Stack Overflow <https://stackoverflow.com/users/208890/shailesh-kumar>`_ |
+`Math Exchange <https://math.stackexchange.com/users/123960/shailesh-kumar>`_ 

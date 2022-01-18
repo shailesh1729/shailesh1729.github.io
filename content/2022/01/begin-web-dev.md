@@ -2,15 +2,15 @@
 author: Shailesh Kumar
 title: Beginning Web Development
 date: 2022-01-13 12:35
-tags: Python, JavaScript, HTML, CSS, Web Development, Overviews
+tags: Python, JavaScript, HTML, CSS, Web Development, Overview
 category: Programming
 ---
 
 ## How to get started? 
 
 Modern web application development is a huge field. 
-There are hundreds of technologies in use to build a high quality. 
-
+There are hundreds of technologies in use to build a high quality
+application.
 This post is a roadmap to get your grooves going to 
 become a productive web developer. 
 
@@ -38,7 +38,8 @@ Core backend technologies
 * A web server (Apache HTTP Server, Nginx Server are most popular)
 * A backend application server
   * Typically written in one of the major programming languages like PHP, Python, Ruby, Java, Go, Rust, JavaScript, etc. 
-  * Every major programming language has framework libraries to make backend development easy.
+  * Every major programming language has framework libraries to make
+    backend development easy.
   * PHP (Laravel, Cake PHP)
   * Python (Django, Flask etc.)
   * Ruby (Rails)
@@ -58,7 +59,7 @@ They don't involve any backend application framework
 as they consist of static web pages with non-changing content. 
 No user interaction is supported. 
 They are built using HTML and CSS only. 
-A little bit of JavaScript may be used for
+A little JavaScript may be used for
 some styling and animation purposes
 (and simple effects like showing and hiding pieces of content). 
 
@@ -79,12 +80,12 @@ You may need to maintain multiple separate websites
 for your company mapped to different subdomains of the same domain. 
 Something called a DNS (domain name system) management console 
 provided by your domain registrar would be used for 
-mapping right website to right subdomain.  
+mapping the right website to the right subdomain.  
 
 ## No Code Website Builders
 
 Web technologies have been around for 25 years now. 
-With that, the ease of building simple yet elegant websites 
+With that, the ease of building simple, yet elegant websites 
 has become easier day by day. 
 You don't really need trained web developers for basic websites 
 like a company web presence, a marketing site, a campaign, 
@@ -103,7 +104,7 @@ Some popular ones include (as of this writing):
 * [Shopify](https://www.shopify.com/)
  
 
-The website builders come with built in support for features 
+The website builders come with built-in support for features 
 like drag and drop design, designer templates, search engine optimization, 
 security, domain purchase and management, privacy rules, 
 automatic backups, global CDN, consistent display of site content 
@@ -146,8 +147,8 @@ If you are already familiar with any of the major backend languages
 (Python, Java, Ruby, etc.), you can pick a framework in that language. 
 
 The problem is easier if you are joining an existing development team. 
-he choices would have been made already for you. 
-If you are a total newbie, my suggestion is to choose between 
+The choices would have been made already for you. 
+If you are a total newbie, my suggestion is to pick between 
 Python and JavaScript (NODE-JS).
 
 ## What is NODE-JS? 
@@ -162,7 +163,7 @@ and made it easy to run JavaScript on backend servers.
 This solution became known as NODE-JS. 
 One of the advantages of using NODE-JS is 
 that you can use the same programming language (JavaScript) 
-for both front end as well as backend development. 
+for both front end and backend development. 
 So, if you want to keep your life simple, NODE-JS is a good choice.
 
 Checkout [Node School](https://nodeschool.io/) 
@@ -170,10 +171,10 @@ for great tutorials about NODE-JS.
 
 ## Why Python? 
 
-One main reason is that it is very simple to learn 
-and you can achieve same functionality with much less code 
+One main reason is that it is very simple to learn,
+and you can achieve the same functionality with much less code 
 compared to something like Java. 
-If your application are focused towards scientific computing 
+If your applications are focused towards scientific computing 
 / machine learning / deep learning, 
 then Python is a good choice as most of the technology 
 in this area is available in Python. 
@@ -185,7 +186,7 @@ One of the best places to learn about Python is
 Once you have got a hang of the language, 
 you can move on to [Django tutorials](https://www.djangoproject.com/start/) 
 to learn about backend development.
-Django is a more comprehensive framework in Python 
+Django is a more comprehensive framework in Python, 
 but [Flask](https://flask.palletsprojects.com/en/2.0.x/) 
 is easier and lightweight. 
 
