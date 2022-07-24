@@ -131,3 +131,7 @@ dmypy.json
 # drop pelican generated content
 output
 __pycache__
+
+
+_site/*
+.sass-cache/*
