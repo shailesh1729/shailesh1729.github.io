@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on In Digits</title>
+    <link>https://indigits.com/post/</link>
+    <description>Recent content in Posts on In Digits</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
+    <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
+    <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright>
+    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Docker</title>
+      <link>https://indigits.com/post/2022/01/docker/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2022/01/docker/</guid>
+      <description>This article is an early draft.
+Docker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.
+Virtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation.</description>
+    </item>
+    
+    <item>
+      <title>Beginning Web Development</title>
+      <link>https://indigits.com/post/2022/01/begin-web-dev/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2022/01/begin-web-dev/</guid>
+      <description>How to get started? Modern web application development is a huge field. There are hundreds of technologies in use to build a high quality application. This post is a roadmap to get your grooves going to become a productive web developer.
+Frontend and Backend Any web application has two parts. One part is the piece of code that is running inside the browser of your user. Another part is the piece of code that is running inside your own servers.</description>
+    </item>
+    
+    <item>
+      <title>CR-Sparse Paper</title>
+      <link>https://indigits.com/post/2021/2021-12-03-cr-sparse-paper-published/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2021/2021-12-03-cr-sparse-paper-published/</guid>
+      <description>Paper on CR-Sparse published in JOSS My paper titled &amp;ldquo;CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX&amp;rdquo; has been published in &amp;ldquo;The Journal of Open Source Software&amp;rdquo;.
+Citation: Kumar, S., (2021). CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX. Journal of Open Source Software, 6(68), 3917, https://doi.org/10.21105/joss.03917</description>
+    </item>
+    
+    <item>
+      <title>Open Source Journey</title>
+      <link>https://indigits.com/post/2014/2014-10-17-the-journey-starts/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2014/2014-10-17-the-journey-starts/</guid>
+      <description>The beginning of open source journey I have been using open source software for last 15 years I would imagine. Yet my own contribution to the world of open source is probably next to zero.
+May be it is now time to pull up the socks and start doing things. This blog is being setup on Github pages on October 17, 2014 to start this journey. I have no idea how far will I be able to go ahead.</description>
+    </item>
+    
+  </channel>
+</rss>

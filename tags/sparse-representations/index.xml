@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sparse Representations on In Digits</title>
+    <link>https://indigits.com/tags/sparse-representations/</link>
+    <description>Recent content in Sparse Representations on In Digits</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
+    <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
+    <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright><atom:link href="https://indigits.com/tags/sparse-representations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://indigits.com/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/research/</guid>
+      <description>Research I am pursuing my Ph.D. from Indian Institute of Technology, Delhi, India in Bharti School of Telecommunications.
+My research focus is on sparse representations and compressed sensing.
+Publications Kumar, S., (2021). CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX. Journal of Open Source Software, 6(68), 3917, https://doi.org/10.21105/joss.03917 Notes During the course of study, I have prepared some notes which have helped me understand the field better.</description>
+    </item>
+    
+  </channel>
+</rss>

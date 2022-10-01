@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Introduction to Docker | In Digits</title>
+<meta name="keywords" content="Docker, Overview">
+<meta name="description" content="This article is an early draft.
+Docker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.
+Virtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation.">
+<meta name="author" content="Shailesh Kumar">
+<link rel="canonical" href="https://indigits.com/post/2022/01/docker/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3299c596a7007118365635c056dd427dace22b7b8c1341fdef6fa6c31359ba10.css" integrity="sha256-MpnFlqcAcRg2VjXAVt1CfaziK3uME0H972&#43;mwxNZuhA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://indigits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://indigits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://indigits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://indigits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://indigits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XJSRMENLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XJSRMENLM4', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="Introduction to Docker" />
+<meta property="og:description" content="This article is an early draft.
+Docker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.
+Virtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://indigits.com/post/2022/01/docker/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Introduction to Docker"/>
+<meta name="twitter:description" content="This article is an early draft.
+Docker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.
+Virtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://indigits.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Introduction to Docker",
+      "item": "https://indigits.com/post/2022/01/docker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introduction to Docker",
+  "name": "Introduction to Docker",
+  "description": "This article is an early draft.\nDocker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.\nVirtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation.",
+  "keywords": [
+    "Docker", "Overview"
+  ],
+  "articleBody": "This article is an early draft.\nDocker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.\nVirtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation. But it doesn’t provide hardware virtualization. It is much more light-weight than virtual machines and independent of specific programming technology. Virtual machines are great if you have to guarantee availability of specific amount of hardware resources to each application (where different applications may not be friendly to each other). Docker works well if applications running on the host machine are cooperative. Docker can run inside virtual machines too. Checking docker version:\n$docker --version Docker version 19.03.12, build 48a66213fe Checking docker version in a specific format:\n$docker version --format '{{.Server.Version}}' 19.03.12 Concepts The key concepts for learning docker technology are:\nContainers Images Registries Container Networks Containers A docker container is a light-weight virtual machine.\nEach container has its own software stack. Containers share the global RAM, CPU, storage and network resources of the host computer. A docker image contains all the necessary software to run a container. A container is an isolated process. All child processes within a container process are not visible to other containers. Unlike virtual machines, docker containers have no hardware virtualization. Docker containers are built on top of Linux namespaces and cgroups features in the kernel. Use Model A host machine can run multiple applications. Each application runs within its own docker container. Each application has its own software and data stack. The docker daemon is responsible for running individual applications in separate containers. Each application can be upgraded independently. Since the software stack for each container is isolated, hence different applications can have different versions of same library/language/program. Installing an application as a container doesn’t affect anything in the global settings/software stack of the host machine. Application vendors can package all the dependencies of an application within the application docker image. Distribution of an application in the form of a docker image becomes much simpler. All common images are available from a common registry like Docker Hub or AWS ECR. Life-cycle of a Container A fresh container can be created from an image docker create. A container can be renamed docker rename. A created container can be started docker start. A fresh container can be created and started docker run. Commands can be executed inside a running container docker exec. A running container can be stopped docker stop. A stopped container can be removed docker rm. A running container can be restarted docker restart. A running container can be paused docker pause. One can wait on a container till it stops docker wait. One can send a KILL signal to a running container docker kill. One can attach to a running container (to get terminal access) docker attach. Attributes/Resources Every container has some key attributes/resources associated with it.\nID: A unique ID is associated with each container. Image: The image provides the software that is run inside a container. Command: The command to be run inside the container. The image should contain all the necessary software and data to successfully execute the command. Creation time stamp: The time when container was created. Status: Current status of the container process. Ports: List of network ports that the container is using. Name: A container can be associated with a user friendly name. Conventions In the rest of this article, following conventions are being followed:\nrefers to either the id of a container or its name. is the name of an image. Frequently, it is in a repository/image format. We shall be frequently using some common images from Docker Hub: hello-world, busybox, ubuntu, alpine, nginx, httpd in this tutorial. alpine is a minimal Docker image based on Alpine Linux with a complete package index. busybox combines tiny versions of many common UNIX utilities into a single small executable. hello-world is a minimal Docker image built from scratch. ubuntu is an image built from official rootfs tarballs provided by Canonical for Ubuntu operating system. nginx is the official image containing Nginx web server. httpd is the official image containing the Apache web server. Running Containers Running a container from an image:\n$docker run $docker run hello-world Hello from Docker! This message shows that your installation appears to be working correctly. To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub. (amd64) 3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal. To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bash Share images, automate workflows, and more with a free Docker ID: https://hub.docker.com/ For more examples and ideas, visit: https://docs.docker.com/get-started/ docker run is a shortcut for a number of activities\nLook for the image in the list of images installed on the host computer. If the image is not locally installed, then look for the image in the docker hub. Download and install the image (all its layers) from docker hub. Create a new container from the image. Start the container. If the main command in the image is a short lived one, then the container will stop execution as soon as the command is finished. List of currently running containers:\n$docker ps List of running and stopped containers:\n$docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES e4c931fa03a8 busybox \"sh\" 6 minutes ago Exited (0) 6 minutes ago competent_brahmagupta 93443e9a8c68 busybox \"sh\" 7 minutes ago Exited (0) 7 minutes ago beautiful_keldysh Running a container with a specific name\n$docker run --name $docker run --name busybee busybox Note that once you create a container with a name, you cannot create another container with the same name till the original container has been removed.\nRunning a container and associate a terminal to it\n$docker run -it -i or --interactive means keeping STDIN open -t or --tty means to allocate a pseudo terminal $docker run -it busybox echo 'shailesh' shailesh We ran a container using the busybox image. The busybox image runs the Linux shell as its main command. We provided input to the shell running inside the container from the command-line itself echo 'shailesh' We allocated a pseudo terminal to the container The shell running inside the container executed the echo 'shailesh' command. Its output showed up onscreen. Setting a working directory:\n$docker run -w -it Note that we are setting the working directory from within the file system of the container. A running container doesn’t have direct access to the filesystem of the host computer.\nA common use case is running a container as an interactive shell and removing the container immediately after it is stopped (i.e. as soon as we exit the shell). Let’s try that with busybox:\n$docker run -it --rm busybox / # ls bin dev etc home proc root sys tmp usr var / # pwd / / # echo 'shailesh' shailesh / # Note the --rm command-line switch. It ensures that the container will be removed immediately after it is stopped. The busybox shell shows its own prompt / # during execution. We finish execution by pressing CTRL+D. If we check docker ps now, we won’t see this container.\nRunning the Nginx web server in a container:\ndocker run --detach --name web nginx:latest Unable to find image 'nginx:latest' locally latest: Pulling from library/nginx a2abf6c4d29d: Pull complete a9edb18cadd1: Pull complete 589b7251471a: Pull complete 186b1aaa4aa6: Pull complete b4df32aa5a72: Pull complete a0bcbecc962e: Pull complete Digest: sha256:0d17b565c37bcbd895e9d92315a05c1c3c9a29f762b011a10c54a66cd53c9b31 Status: Downloaded newer image for nginx:latest 2cf811c887e154a7a91e16e3ad8c688ab535f345c51002761f433983af3f9ac1 The nginx image was not available locally. It was downloaded from docker hub. Once the image was downloaded, a container using this image was started. The last line shows the long container id assigned to this container 2cf811c887e154a7a91e16e3ad8c688ab535f345c51002761f433983af3f9ac1. The container is going to be run in detached mode as it contains a service which doesn’t require any terminal input/output. One can see the container in the list of running containers:\n$docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 2cf811c887e1 nginx:latest \"/docker-entrypoint.…\" 2 minutes ago Up 2 minutes 80/tcp web The process listing of this container shows the last 12 characters of the container id.\nThe web server runs on the default port 80 inside the container. However, we haven’t associated it with a port of the host machine yet. Let’s remove this container.\n$docker stop web $docker rm web This time, we shall create the Nginx container by associating the container port 80 with the host port 8080.\n$docker run --detach --name web -p 8080:80 nginx:latest de60c053aa91f33c792883833639ccbdfedb708f47bd06bc8a3c8eedaa347e7d``` We can examine the port mapping:\n$docker port $docker port web 80/tcp -\u003e 0.0.0.0:8080 Let’s check if we can access the web-server running inside the container:\n$ wget -O - http://localhost:8080 --2022-01-18 19:51:07-- http://localhost:8080/ Resolving localhost (localhost)... 127.0.0.1 Connecting to localhost (localhost)|127.0.0.1|:8080... connected. HTTP request sent, awaiting response... 200 OK Length: 615 [text/html] Saving to: ‘STDOUT’ - 0%[ ] 0 --.-KB/s \u003c!DOCTYPE html\u003e Welcome to nginx! Welcome to nginx! If you see this page, the nginx web server is successfully installed and working. Further configuration is required.\nFor online documentation and support please refer to nginx.org. Commercial support is available at nginx.com.\nThank you for using nginx.\n- 100%[========================================================================================================================================\u003e] 615 --.-KB/s in 0s 2022-01-18 19:51:07 (48.3 MB/s) - written to stdout [615/615] Inspecting a running container Recall the nginx container named web we created above.\nFinding the IP address of a running container:\n$docker inspect --format='{{ .NetworkSettings.IPAddress }}' $docker inspect --format='{{ .NetworkSettings.IPAddress }}' web 172.17.0.2 Associating a temporary file system to a docker container:\n$docker run -d --tmpfs /run:rw,noexec,nosuid,size=65536k -d means running the container in the background (detached from terminal) and printing container ID Details of --tmpfs\nAn empty temporary file system has been attached. Read/Write permissions No execution permission No Set UID permission 64MB maximum size More life-cycle commands Creating a container without starting it:\n$docker create Starting a container:\n$docker start Stopping a container:\n$docker stop Restarting a container:\n$docker restart Forcefully killing a container:\n$docker kill Removing a container:\n$docker rm Identifying container ids which have exited:\n$docker ps --filter status=exited -q 7da1661fbba6 Removing all stopped containers:\n$docker rm $(docker ps --filter status=exited -q) 7da1661fbba6 It emits the ids of the containers which get removed.\nAnother way to remove all stopped containers is by using the xargs utility of Linux:\n$docker ps --filter status=exited -q | xargs docker rm File System Running Commands inside Container Running the ls command inside a container:\n$docker exec ls Running an interactive bash terminal inside a container:\n$docker exec -it /bin/bash Network Ports Images Showing the list of images available on the host machine:\n$docker images REPOSITORY TAG IMAGE ID CREATED SIZE busybox latest beae173ccac6 2 weeks ago 1.24MB nginx latest 605c77e624dd 2 weeks ago 141MB openjournals/paperdraft latest 993023e4659f 3 months ago 691MB hello-world latest feb5d9fea6a5 3 months ago 13.3kB Importing Images Pulling/Downloading an image of Apache HTTP Server from Docker Hub:\n$docker pull httpd Command for pulling an arbitrary image:\n$docker pull Creating Images from a Container Assume that a container is running and you wish to save an image based on its current state:\n$docker commit Removing Images Removing an image:\n$docker rmi Building Images from Dockerfiles A Dockerfile is a set of instructions to build an image. It is written as a simple text file. A docker image can be created using the docker build command on a docker file. The main instructions given in a Dockerfile are: FROM, LABEL, COPY, ADD, RUN, ENV, EXPOSE, CMD, ENTRYPOINT, WORKDIR, ARGS, VOLUME.\nA first docker image We will build a simple image\nWe start with the image for Alpine Linux: alpine:latest. We make sure that the package repository is updated in the image using the apk tool. We add vim editor to the image using the apk tool. Here is the Dockerfile\nFROM alpine:latest RUN apk update RUN apk add vim We put this into a file named Dockerfile and save it. Let us now build an image using this file. We shall name our new image as shailesh1729/vim.\n$docker build -t shailesh1729/vim . Sending build context to Docker daemon 2.048kB Step 1/3 : FROM alpine:latest latest: Pulling from library/alpine 59bf1c3509f3: Pull complete Digest: sha256:21a3deaa0d32a8057914f36584b5288d2e5ecc984380bc0118285c70fa8c9300 Status: Downloaded newer image for alpine:latest ---\u003e c059bfaa849c Step 2/3 : RUN apk update ---\u003e Running in ed1db3549672 fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/main/x86_64/APKINDEX.tar.gz fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/community/x86_64/APKINDEX.tar.gz v3.15.0-206-ge1064619f3 [https://dl-cdn.alpinelinux.org/alpine/v3.15/main] v3.15.0-209-g6701dcf4a3 [https://dl-cdn.alpinelinux.org/alpine/v3.15/community] OK: 15848 distinct packages available Removing intermediate container ed1db3549672 ---\u003e ee4deb59186e Step 3/3 : RUN apk add vim ---\u003e Running in b6be0c3b0096 (1/5) Installing xxd (8.2.3650-r0) (2/5) Installing lua5.3-libs (5.3.6-r1) (3/5) Installing ncurses-terminfo-base (6.3_p20211120-r0) (4/5) Installing ncurses-libs (6.3_p20211120-r0) (5/5) Installing vim (8.2.3650-r0) Executing busybox-1.34.1-r3.trigger OK: 34 MiB in 19 packages Removing intermediate container b6be0c3b0096 ---\u003e c90dcbb67a7a Successfully built c90dcbb67a7a Successfully tagged shailesh1729/vim:latest Once, the building process is successfully completed, we can see the new pristine image in the list of images:\n$ docker images REPOSITORY TAG IMAGE ID CREATED SIZE shailesh1729/vim latest c90dcbb67a7a 2 minutes ago 33.7MB busybox latest beae173ccac6 2 weeks ago 1.24MB nginx latest 605c77e624dd 2 weeks ago 141MB alpine latest c059bfaa849c 7 weeks ago 5.59MB hello-world latest feb5d9fea6a5 3 months ago 13.3kB If we run this image, we can see that we can use vim inside it:\n$docker run -it --rm shailesh1729/vim / # vim / # abc /bin/sh: abc: not found / # Docker Hub Logging in:\n$docker login Pushing an image to docker hub\n$docker push / ",
+  "wordCount" : "2351",
+  "inLanguage": "en",
+  "datePublished": "2022-01-18T00:00:00Z",
+  "dateModified": "2022-01-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Shailesh Kumar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://indigits.com/post/2022/01/docker/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "In Digits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://indigits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://indigits.com/" accesskey="h" title="In Digits (Alt + H)">In Digits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://indigits.com/research" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/software" title="Software">
+                    <span>Software</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/post" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/links" title="Links">
+                    <span>Links</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://indigits.com/">Home</a>&nbsp;»&nbsp;<a href="https://indigits.com/post/">Posts</a></div>
+    <h1 class="post-title">
+      Introduction to Docker
+    </h1>
+    <div class="post-meta"><span title='2022-01-18 00:00:00 +0000 UTC'>January 18, 2022</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Shailesh Kumar&nbsp;|&nbsp;<a href="https://github.com/shailesh1729/shailesh1729.github.io/content/post/2022/01/docker.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#concepts" aria-label="Concepts">Concepts</a><ul>
+                        
+                <li>
+                    <a href="#containers" aria-label="Containers">Containers</a><ul>
+                        
+                <li>
+                    <a href="#use-model" aria-label="Use Model">Use Model</a></li>
+                <li>
+                    <a href="#life-cycle-of-a-container" aria-label="Life-cycle of a Container">Life-cycle of a Container</a></li>
+                <li>
+                    <a href="#attributesresources" aria-label="Attributes/Resources">Attributes/Resources</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#conventions" aria-label="Conventions">Conventions</a></li>
+                <li>
+                    <a href="#running-containers" aria-label="Running Containers">Running Containers</a><ul>
+                        
+                <li>
+                    <a href="#inspecting-a-running-container" aria-label="Inspecting a running container">Inspecting a running container</a></li>
+                <li>
+                    <a href="#more-life-cycle-commands" aria-label="More life-cycle commands">More life-cycle commands</a></li></ul>
+                </li>
+                <li>
+                    <a href="#file-system" aria-label="File System">File System</a></li>
+                <li>
+                    <a href="#running-commands-inside-container" aria-label="Running Commands inside Container">Running Commands inside Container</a></li>
+                <li>
+                    <a href="#network-ports" aria-label="Network Ports">Network Ports</a></li>
+                <li>
+                    <a href="#images" aria-label="Images">Images</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#importing-images" aria-label="Importing Images">Importing Images</a></li>
+                <li>
+                    <a href="#creating-images-from-a-container" aria-label="Creating Images from a Container">Creating Images from a Container</a></li>
+                <li>
+                    <a href="#removing-images" aria-label="Removing Images">Removing Images</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#building-images-from-dockerfiles" aria-label="Building Images from Dockerfiles">Building Images from Dockerfiles</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#a-first-docker-image" aria-label="A first docker image">A first docker image</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#docker-hub" aria-label="Docker Hub">Docker Hub</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This article is an early draft.</p>
+<p>Docker is a technology to created isolated
+environments on a host computer. 
+One can compare Docker to virtual machines on one hand
+and language specific virtual environments like <code>conda</code>
+on the other hand.</p>
+<ul>
+<li>Virtual machines provide complete hardware virtualization.</li>
+<li>Tools like <code>conda</code> can provide isolated environments for individual applications
+but they are specific to a particular language (like <code>Python</code>).</li>
+<li><code>Docker</code> is language independent. It provides software isolation. 
+But it doesn&rsquo;t provide hardware virtualization.</li>
+<li>It is much more light-weight than virtual machines and independent of specific programming technology.</li>
+<li>Virtual machines are great if you have to guarantee availability of specific amount 
+of hardware resources to each application (where different applications may not be friendly to each other).</li>
+<li>Docker works well if applications running on the host machine are cooperative.</li>
+<li>Docker can run inside virtual machines too.</li>
+</ul>
+<p>Checking docker version:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker --version
+</span></span><span class="line"><span class="cl"><span class="go">Docker version 19.03.12, build 48a66213fe
+</span></span></span></code></pre></div><p>Checking docker version in a specific format:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker version --format <span class="s1">&#39;{{.Server.Version}}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="go">19.03.12
+</span></span></span></code></pre></div><h2 id="concepts">Concepts<a hidden class="anchor" aria-hidden="true" href="#concepts">#</a></h2>
+<p>The key concepts for learning docker technology are:</p>
+<ul>
+<li>Containers</li>
+<li>Images</li>
+<li>Registries</li>
+<li>Container Networks</li>
+</ul>
+<h3 id="containers">Containers<a hidden class="anchor" aria-hidden="true" href="#containers">#</a></h3>
+<p>A docker container is a light-weight virtual machine.</p>
+<ul>
+<li>Each container has its own software stack.</li>
+<li>Containers share the global RAM, CPU, storage and network
+resources of the host computer.</li>
+<li>A docker image contains all the necessary software to run
+a container.</li>
+<li>A container is an isolated process. All child processes
+within a container process are not visible to other containers.</li>
+<li>Unlike virtual machines, docker containers have no
+hardware virtualization.</li>
+<li>Docker containers are built on top of Linux 
+<code>namespaces</code> and <code>cgroups</code> features in the kernel.</li>
+</ul>
+<h4 id="use-model">Use Model<a hidden class="anchor" aria-hidden="true" href="#use-model">#</a></h4>
+<ul>
+<li>A host machine can run multiple applications.</li>
+<li>Each application runs within its own docker container.</li>
+<li>Each application has its own software and data stack.</li>
+<li>The docker daemon is responsible for running individual
+applications in separate containers.</li>
+<li>Each application can be upgraded independently.</li>
+<li>Since the software stack for each container is isolated,
+hence different applications can have different versions
+of same library/language/program.</li>
+<li>Installing an application as a container doesn&rsquo;t affect
+anything in the global settings/software stack of the
+host machine.</li>
+<li>Application vendors can package all the dependencies
+of an application within the application docker image.</li>
+<li>Distribution of an application in the form of a 
+docker image becomes much simpler.</li>
+<li>All common images are available from a common registry
+like <code>Docker Hub</code> or <code>AWS ECR</code>.</li>
+</ul>
+<h4 id="life-cycle-of-a-container">Life-cycle of a Container<a hidden class="anchor" aria-hidden="true" href="#life-cycle-of-a-container">#</a></h4>
+<ul>
+<li>A fresh container can be created from an 
+image <code>docker create</code>.</li>
+<li>A container can be renamed <code>docker rename</code>.</li>
+<li>A created container can be started <code>docker start</code>.</li>
+<li>A fresh container can be created and started <code>docker run</code>.</li>
+<li>Commands can be executed inside a running container <code>docker exec</code>.</li>
+<li>A running container can be stopped <code>docker stop</code>.</li>
+<li>A stopped container can be removed <code>docker rm</code>.</li>
+<li>A running container can be restarted <code>docker restart</code>.</li>
+<li>A running container can be paused <code>docker pause</code>.</li>
+<li>One can wait on a container till it stops <code>docker wait</code>.</li>
+<li>One can send a KILL signal to a running container <code>docker kill</code>.</li>
+<li>One can attach to a running container (to get terminal access)
+<code>docker attach</code>.</li>
+</ul>
+<h4 id="attributesresources">Attributes/Resources<a hidden class="anchor" aria-hidden="true" href="#attributesresources">#</a></h4>
+<p>Every container has some key attributes/resources 
+associated with it.</p>
+<ul>
+<li>ID: A unique ID is associated with each container.</li>
+<li>Image: The image provides the software that is run 
+inside a container.</li>
+<li>Command: The command to be run inside the container.
+The image should contain all the necessary software 
+and data to successfully execute the command.</li>
+<li>Creation time stamp: The time when container was created.</li>
+<li>Status: Current status of the container process.</li>
+<li>Ports: List of network ports that the container is using.</li>
+<li>Name: A container can be associated with a user friendly name.</li>
+</ul>
+<h2 id="conventions">Conventions<a hidden class="anchor" aria-hidden="true" href="#conventions">#</a></h2>
+<p>In the rest of this article, following
+conventions are being followed:</p>
+<ul>
+<li><code>&lt;container&gt;</code> refers to either the id of
+a container or its name.</li>
+<li><code>&lt;image&gt;</code> is the name of an image.
+Frequently, it is in a <code>repository/image</code>
+format.</li>
+<li>We shall be frequently using some common images from Docker Hub:
+<code>hello-world</code>, <code>busybox</code>, <code>ubuntu</code>, <code>alpine</code>, <code>nginx</code>, <code>httpd</code> in this tutorial.
+<ul>
+<li><code>alpine</code> is a  minimal Docker image based on Alpine Linux with a complete package index.</li>
+<li><code>busybox</code> combines tiny versions of many common UNIX utilities into a single small executable.</li>
+<li><code>hello-world</code> is a minimal Docker image built from scratch.</li>
+<li><code>ubuntu</code> is an image built from official rootfs tarballs provided by Canonical for Ubuntu operating system.</li>
+<li><code>nginx</code> is the official image containing Nginx web server.</li>
+<li><code>httpd</code> is the official image containing the Apache web server.</li>
+</ul>
+</li>
+</ul>
+<h2 id="running-containers">Running Containers<a hidden class="anchor" aria-hidden="true" href="#running-containers">#</a></h2>
+<p>Running a container from an image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run &lt;image&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run hello-world
+</span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">Hello from Docker!
+</span></span></span><span class="line"><span class="cl"><span class="go">This message shows that your installation appears to be working correctly.
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">To generate this message, Docker took the following steps:
+</span></span></span><span class="line"><span class="cl"><span class="go"> 1. The Docker client contacted the Docker daemon.
+</span></span></span><span class="line"><span class="cl"><span class="go"> 2. The Docker daemon pulled the &#34;hello-world&#34; image from the Docker Hub.
+</span></span></span><span class="line"><span class="cl"><span class="go">    (amd64)
+</span></span></span><span class="line"><span class="cl"><span class="go"> 3. The Docker daemon created a new container from that image which runs the
+</span></span></span><span class="line"><span class="cl"><span class="go">    executable that produces the output you are currently reading.
+</span></span></span><span class="line"><span class="cl"><span class="go"> 4. The Docker daemon streamed that output to the Docker client, which sent it
+</span></span></span><span class="line"><span class="cl"><span class="go">    to your terminal.
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">To try something more ambitious, you can run an Ubuntu container with:
+</span></span></span><span class="line"><span class="cl"><span class="go"> $ docker run -it ubuntu bash
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">Share images, automate workflows, and more with a free Docker ID:
+</span></span></span><span class="line"><span class="cl"><span class="go"> https://hub.docker.com/
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">For more examples and ideas, visit:
+</span></span></span><span class="line"><span class="cl"><span class="go"> https://docs.docker.com/get-started/
+</span></span></span></code></pre></div><p><code>docker run</code> is a shortcut for a number of activities</p>
+<ul>
+<li>Look for the image in the list of images
+installed on the host computer.</li>
+<li>If the image is not locally installed, then
+look for the image in the docker hub.</li>
+<li>Download and install the image (all its layers) 
+from docker hub.</li>
+<li>Create a new container from the image.</li>
+<li>Start the container.</li>
+<li>If the main command in the image is 
+a short lived one, then the container will
+stop execution as soon as the command is finished.</li>
+</ul>
+<p>List of currently running containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker ps
+</span></span></code></pre></div><p>List of running and stopped containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker ps -a
+</span></span><span class="line"><span class="cl"><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
+</span></span></span><span class="line"><span class="cl"><span class="go">e4c931fa03a8        busybox             &#34;sh&#34;                     6 minutes ago       Exited (0) 6 minutes ago                       competent_brahmagupta
+</span></span></span><span class="line"><span class="cl"><span class="go">93443e9a8c68        busybox             &#34;sh&#34;                     7 minutes ago       Exited (0) 7 minutes ago                       beautiful_keldysh
+</span></span></span></code></pre></div><p>Running a container with a specific name</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run --name &lt;name&gt; &lt;image&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run --name busybee busybox
+</span></span></code></pre></div><p>Note that once you create a container with a name,
+you cannot create another container with the same name
+till the original container has been removed.</p>
+<p>Running a container and associate a terminal to it</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -it &lt;image&gt; 
+</span></span></code></pre></div><ul>
+<li><code>-i</code> or <code>--interactive</code> means keeping STDIN open</li>
+<li><code>-t</code> or <code>--tty</code> means to allocate a pseudo terminal</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -it busybox <span class="nb">echo</span> <span class="s1">&#39;shailesh&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="go">shailesh
+</span></span></span></code></pre></div><ul>
+<li>We ran a container using the <code>busybox</code> image.</li>
+<li>The <code>busybox</code> image runs the Linux shell as its main command.</li>
+<li>We provided input to the shell running inside the container from the command-line itself <code>echo 'shailesh'</code></li>
+<li>We allocated a pseudo terminal to the container</li>
+<li>The shell running inside the container executed the <code>echo 'shailesh'</code> command.</li>
+<li>Its output showed up onscreen.</li>
+</ul>
+<p>Setting a working directory:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -w &lt;dir&gt; -it &lt;image&gt;
+</span></span></code></pre></div><p>Note that we are setting the working directory from within the file system of the container. 
+A running container doesn&rsquo;t have direct access to the filesystem of the host computer.</p>
+<p>A common use case is running a container as an interactive shell
+and removing the container immediately after it is stopped
+(i.e. as soon as we exit the shell). Let&rsquo;s try that with <code>busybox</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -it --rm busybox
+</span></span><span class="line"><span class="cl"><span class="go">/ # ls
+</span></span></span><span class="line"><span class="cl"><span class="go">bin   dev   etc   home  proc  root  sys   tmp   usr   var
+</span></span></span><span class="line"><span class="cl"><span class="go">/ # pwd
+</span></span></span><span class="line"><span class="cl"><span class="go">/
+</span></span></span><span class="line"><span class="cl"><span class="go">/ # echo &#39;shailesh&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">shailesh
+</span></span></span><span class="line"><span class="cl"><span class="go">/ #
+</span></span></span></code></pre></div><p>Note the <code>--rm</code> command-line switch. It ensures that the container
+will be removed immediately after it is stopped.
+The <code>busybox</code> shell shows its own prompt <code>/ #</code> during execution.
+We finish execution by pressing <code>CTRL+D</code>. If we check <code>docker ps</code>
+now, we won&rsquo;t see this container.</p>
+<p>Running the Nginx web server in a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">docker run --detach --name web nginx:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">Unable to find image &#39;nginx:latest&#39; locally
+</span></span></span><span class="line"><span class="cl"><span class="go">latest: Pulling from library/nginx
+</span></span></span><span class="line"><span class="cl"><span class="go">a2abf6c4d29d: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">a9edb18cadd1: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">589b7251471a: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">186b1aaa4aa6: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">b4df32aa5a72: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">a0bcbecc962e: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">Digest: sha256:0d17b565c37bcbd895e9d92315a05c1c3c9a29f762b011a10c54a66cd53c9b31
+</span></span></span><span class="line"><span class="cl"><span class="go">Status: Downloaded newer image for nginx:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">2cf811c887e154a7a91e16e3ad8c688ab535f345c51002761f433983af3f9ac1
+</span></span></span></code></pre></div><ul>
+<li>The <code>nginx</code> image was not available locally.</li>
+<li>It was downloaded from docker hub.</li>
+<li>Once the image was downloaded, a container using this image was started.</li>
+<li>The last line shows the long container id assigned to this container <code>2cf811c887e154a7a91e16e3ad8c688ab535f345c51002761f433983af3f9ac1</code>.</li>
+<li>The container is going to be run in detached mode as it contains a service which doesn&rsquo;t require any terminal input/output.</li>
+</ul>
+<p>One can see the container in the list of running containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker ps
+</span></span><span class="line"><span class="cl"><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+</span></span></span><span class="line"><span class="cl"><span class="go">2cf811c887e1        nginx:latest        &#34;/docker-entrypoint.…&#34;   2 minutes ago       Up 2 minutes        80/tcp              web
+</span></span></span></code></pre></div><p>The process listing of this container shows the last 12 characters of the container id.</p>
+<p>The web server runs on the default port 80 inside the container.
+However, we haven&rsquo;t associated it with a port of the host machine yet. 
+Let&rsquo;s remove this container.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker stop web
+</span></span><span class="line"><span class="cl"><span class="gp">$</span>docker rm web
+</span></span></code></pre></div><p>This time, we shall create the Nginx container by associating the container port 80 with the host port 8080.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run --detach --name web -p 8080:80 nginx:latest
+</span></span><span class="line"><span class="cl"><span class="go">de60c053aa91f33c792883833639ccbdfedb708f47bd06bc8a3c8eedaa347e7d```
+</span></span></span></code></pre></div><p>We can examine the port mapping:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker port &lt;container&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker port web
+</span></span><span class="line"><span class="cl"><span class="go">80/tcp -&gt; 0.0.0.0:8080
+</span></span></span></code></pre></div><p>Let&rsquo;s check if we can access the web-server running inside the container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> wget -O - http://localhost:8080
+</span></span><span class="line"><span class="cl"><span class="go">--2022-01-18 19:51:07--  http://localhost:8080/
+</span></span></span><span class="line"><span class="cl"><span class="go">Resolving localhost (localhost)... 127.0.0.1
+</span></span></span><span class="line"><span class="cl"><span class="go">Connecting to localhost (localhost)|127.0.0.1|:8080... connected.
+</span></span></span><span class="line"><span class="cl"><span class="go">HTTP request sent, awaiting response... 200 OK
+</span></span></span><span class="line"><span class="cl"><span class="go">Length: 615 [text/html]
+</span></span></span><span class="line"><span class="cl"><span class="go">Saving to: ‘STDOUT’
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">-                                                             0%[                                                                                                                                         ]       0  --.-KB/s               &lt;!DOCTYPE html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;style&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">html { color-scheme: light dark; }
+</span></span></span><span class="line"><span class="cl"><span class="go">body { width: 35em; margin: 0 auto;
+</span></span></span><span class="line"><span class="cl"><span class="go">font-family: Tahoma, Verdana, Arial, sans-serif; }
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;/style&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;/head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+</span></span></span><span class="line"><span class="cl"><span class="go">working. Further configuration is required.&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">&lt;p&gt;For online documentation and support please refer to
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;a href=&#34;http://nginx.org/&#34;&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">Commercial support is available at
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;a href=&#34;http://nginx.com/&#34;&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;/body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">&lt;/html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="go">-                                                           100%[========================================================================================================================================&gt;]     615  --.-KB/s    in 0s
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">2022-01-18 19:51:07 (48.3 MB/s) - written to stdout [615/615]
+</span></span></span></code></pre></div><h3 id="inspecting-a-running-container">Inspecting a running container<a hidden class="anchor" aria-hidden="true" href="#inspecting-a-running-container">#</a></h3>
+<p>Recall the <code>nginx</code> container named <code>web</code> we created above.</p>
+<p>Finding the IP address of a running container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker inspect --format<span class="o">=</span><span class="s1">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span> &lt;container&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker inspect --format<span class="o">=</span><span class="s1">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span> web
+</span></span><span class="line"><span class="cl"><span class="go">172.17.0.2
+</span></span></span></code></pre></div><p>Associating a temporary file system 
+to a docker container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -d --tmpfs  /run:rw,noexec,nosuid,size<span class="o">=</span>65536k &lt;image&gt;
+</span></span></code></pre></div><ul>
+<li><code>-d</code> means running the container in the background
+(detached from terminal) and printing container ID</li>
+</ul>
+<p>Details of <code>--tmpfs</code></p>
+<ul>
+<li>An empty temporary file system has been attached.</li>
+<li>Read/Write permissions</li>
+<li>No execution permission</li>
+<li>No Set UID permission</li>
+<li>64MB maximum size</li>
+</ul>
+<h3 id="more-life-cycle-commands">More life-cycle commands<a hidden class="anchor" aria-hidden="true" href="#more-life-cycle-commands">#</a></h3>
+<p>Creating a container without starting it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker create &lt;image&gt;
+</span></span></code></pre></div><p>Starting a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker start &lt;container&gt;
+</span></span></code></pre></div><p>Stopping a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker stop &lt;container&gt;
+</span></span></code></pre></div><p>Restarting a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker restart &lt;container&gt;
+</span></span></code></pre></div><p>Forcefully killing a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker <span class="nb">kill</span> &lt;container&gt;
+</span></span></code></pre></div><p>Removing a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker rm &lt;container&gt;
+</span></span></code></pre></div><p>Identifying container ids which have exited:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker ps --filter <span class="nv">status</span><span class="o">=</span>exited -q
+</span></span><span class="line"><span class="cl"><span class="go">7da1661fbba6
+</span></span></span></code></pre></div><p>Removing all stopped containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker rm <span class="k">$(</span>docker ps --filter <span class="nv">status</span><span class="o">=</span>exited -q<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="go">7da1661fbba6
+</span></span></span></code></pre></div><p>It emits the ids of the containers which get removed.</p>
+<p>Another way to remove all stopped containers is by using the <code>xargs</code> utility of Linux:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker ps --filter <span class="nv">status</span><span class="o">=</span>exited -q <span class="p">|</span> xargs docker rm
+</span></span></code></pre></div><h2 id="file-system">File System<a hidden class="anchor" aria-hidden="true" href="#file-system">#</a></h2>
+<h2 id="running-commands-inside-container">Running Commands inside Container<a hidden class="anchor" aria-hidden="true" href="#running-commands-inside-container">#</a></h2>
+<p>Running the <code>ls</code> command inside a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker <span class="nb">exec</span> &lt;container&gt; ls
+</span></span></code></pre></div><p>Running an interactive bash terminal inside a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker <span class="nb">exec</span> -it &lt;container&gt; /bin/bash
+</span></span></code></pre></div><h2 id="network-ports">Network Ports<a hidden class="anchor" aria-hidden="true" href="#network-ports">#</a></h2>
+<h2 id="images">Images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h2>
+<p>Showing the list of images available on the host machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker images
+</span></span><span class="line"><span class="cl"><span class="go">REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+</span></span></span><span class="line"><span class="cl"><span class="go">busybox                   latest              beae173ccac6        2 weeks ago         1.24MB
+</span></span></span><span class="line"><span class="cl"><span class="go">nginx                     latest              605c77e624dd        2 weeks ago         141MB
+</span></span></span><span class="line"><span class="cl"><span class="go">openjournals/paperdraft   latest              993023e4659f        3 months ago        691MB
+</span></span></span><span class="line"><span class="cl"><span class="go">hello-world               latest              feb5d9fea6a5        3 months ago        13.3kB
+</span></span></span></code></pre></div><h4 id="importing-images">Importing Images<a hidden class="anchor" aria-hidden="true" href="#importing-images">#</a></h4>
+<p>Pulling/Downloading an image of 
+Apache HTTP Server from <code>Docker Hub</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker pull httpd
+</span></span></code></pre></div><p>Command for pulling an arbitrary image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker pull &lt;image&gt;
+</span></span></code></pre></div><h4 id="creating-images-from-a-container">Creating Images from a Container<a hidden class="anchor" aria-hidden="true" href="#creating-images-from-a-container">#</a></h4>
+<p>Assume that a container is running and you wish
+to save an image based on its current state:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker commit &lt;container&gt; &lt;image_name&gt;
+</span></span></code></pre></div><h4 id="removing-images">Removing Images<a hidden class="anchor" aria-hidden="true" href="#removing-images">#</a></h4>
+<p>Removing an image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker rmi &lt;image&gt;
+</span></span></code></pre></div><h2 id="building-images-from-dockerfiles">Building Images from Dockerfiles<a hidden class="anchor" aria-hidden="true" href="#building-images-from-dockerfiles">#</a></h2>
+<p>A Dockerfile is a set of instructions to build an image.
+It is written as a simple text file.
+A docker image can be created using the <code>docker build</code> command
+on a docker file.
+The main instructions given in a Dockerfile are:
+<code>FROM</code>, <code>LABEL</code>, <code>COPY</code>, <code>ADD</code>, <code>RUN</code>, <code>ENV</code>, <code>EXPOSE</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>WORKDIR</code>, <code>ARGS</code>, <code>VOLUME</code>.</p>
+<h4 id="a-first-docker-image">A first docker image<a hidden class="anchor" aria-hidden="true" href="#a-first-docker-image">#</a></h4>
+<p>We will build a simple image</p>
+<ul>
+<li>We start with the image for Alpine Linux: <code>alpine:latest</code>.</li>
+<li>We make sure that the package repository is updated in the image using the <code>apk</code> tool.</li>
+<li>We add <code>vim</code> editor to the image using the <code>apk</code> tool.</li>
+</ul>
+<p>Here is the Dockerfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> alpine:latest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk update<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk add vim<span class="err">
+</span></span></span></code></pre></div><p>We put this into a file named <code>Dockerfile</code> and save it. 
+Let us now build an image using this file. We shall name our new image as <code>shailesh1729/vim</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker build -t shailesh1729/vim  .
+</span></span><span class="line"><span class="cl"><span class="go">Sending build context to Docker daemon  2.048kB
+</span></span></span><span class="line"><span class="cl"><span class="go">Step 1/3 : FROM alpine:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">latest: Pulling from library/alpine
+</span></span></span><span class="line"><span class="cl"><span class="go">59bf1c3509f3: Pull complete
+</span></span></span><span class="line"><span class="cl"><span class="go">Digest: sha256:21a3deaa0d32a8057914f36584b5288d2e5ecc984380bc0118285c70fa8c9300
+</span></span></span><span class="line"><span class="cl"><span class="go">Status: Downloaded newer image for alpine:latest
+</span></span></span><span class="line"><span class="cl"><span class="go"> ---&gt; c059bfaa849c
+</span></span></span><span class="line"><span class="cl"><span class="go">Step 2/3 : RUN apk update
+</span></span></span><span class="line"><span class="cl"><span class="go"> ---&gt; Running in ed1db3549672
+</span></span></span><span class="line"><span class="cl"><span class="go">fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/main/x86_64/APKINDEX.tar.gz
+</span></span></span><span class="line"><span class="cl"><span class="go">fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/community/x86_64/APKINDEX.tar.gz
+</span></span></span><span class="line"><span class="cl"><span class="go">v3.15.0-206-ge1064619f3 [https://dl-cdn.alpinelinux.org/alpine/v3.15/main]
+</span></span></span><span class="line"><span class="cl"><span class="go">v3.15.0-209-g6701dcf4a3 [https://dl-cdn.alpinelinux.org/alpine/v3.15/community]
+</span></span></span><span class="line"><span class="cl"><span class="go">OK: 15848 distinct packages available
+</span></span></span><span class="line"><span class="cl"><span class="go">Removing intermediate container ed1db3549672
+</span></span></span><span class="line"><span class="cl"><span class="go"> ---&gt; ee4deb59186e
+</span></span></span><span class="line"><span class="cl"><span class="go">Step 3/3 : RUN apk add vim
+</span></span></span><span class="line"><span class="cl"><span class="go"> ---&gt; Running in b6be0c3b0096
+</span></span></span><span class="line"><span class="cl"><span class="go">(1/5) Installing xxd (8.2.3650-r0)
+</span></span></span><span class="line"><span class="cl"><span class="go">(2/5) Installing lua5.3-libs (5.3.6-r1)
+</span></span></span><span class="line"><span class="cl"><span class="go">(3/5) Installing ncurses-terminfo-base (6.3_p20211120-r0)
+</span></span></span><span class="line"><span class="cl"><span class="go">(4/5) Installing ncurses-libs (6.3_p20211120-r0)
+</span></span></span><span class="line"><span class="cl"><span class="go">(5/5) Installing vim (8.2.3650-r0)
+</span></span></span><span class="line"><span class="cl"><span class="go">Executing busybox-1.34.1-r3.trigger
+</span></span></span><span class="line"><span class="cl"><span class="go">OK: 34 MiB in 19 packages
+</span></span></span><span class="line"><span class="cl"><span class="go">Removing intermediate container b6be0c3b0096
+</span></span></span><span class="line"><span class="cl"><span class="go"> ---&gt; c90dcbb67a7a
+</span></span></span><span class="line"><span class="cl"><span class="go">Successfully built c90dcbb67a7a
+</span></span></span><span class="line"><span class="cl"><span class="go">Successfully tagged shailesh1729/vim:latest
+</span></span></span></code></pre></div><p>Once, the building process is successfully completed, we can see the new pristine image
+in the list of images:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> docker images
+</span></span><span class="line"><span class="cl"><span class="go">REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+</span></span></span><span class="line"><span class="cl"><span class="go">shailesh1729/vim          latest              c90dcbb67a7a        2 minutes ago       33.7MB
+</span></span></span><span class="line"><span class="cl"><span class="go">busybox                   latest              beae173ccac6        2 weeks ago         1.24MB
+</span></span></span><span class="line"><span class="cl"><span class="go">nginx                     latest              605c77e624dd        2 weeks ago         141MB
+</span></span></span><span class="line"><span class="cl"><span class="go">alpine                    latest              c059bfaa849c        7 weeks ago         5.59MB
+</span></span></span><span class="line"><span class="cl"><span class="go">hello-world               latest              feb5d9fea6a5        3 months ago        13.3kB
+</span></span></span></code></pre></div><p>If we run this image, we can see that we can use <code>vim</code> inside it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker run -it --rm  shailesh1729/vim
+</span></span><span class="line"><span class="cl"><span class="go">/ # vim
+</span></span></span><span class="line"><span class="cl"><span class="go">/ # abc
+</span></span></span><span class="line"><span class="cl"><span class="go">/bin/sh: abc: not found
+</span></span></span><span class="line"><span class="cl"><span class="go">/ #
+</span></span></span></code></pre></div><h2 id="docker-hub">Docker Hub<a hidden class="anchor" aria-hidden="true" href="#docker-hub">#</a></h2>
+<p>Logging in:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker login
+</span></span></code></pre></div><p>Pushing an image to docker hub</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span>docker push &lt;repository&gt;/&lt;image_name&gt;
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://indigits.com/tags/docker/">Docker</a></li>
+      <li><a href="https://indigits.com/tags/overview/">Overview</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://indigits.com/post/2022/01/begin-web-dev/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Beginning Web Development</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on twitter"
+        href="https://twitter.com/intent/tweet/?text=Introduction%20to%20Docker&amp;url=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f&amp;hashtags=Docker%2cOverview">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f&amp;title=Introduction%20to%20Docker&amp;summary=Introduction%20to%20Docker&amp;source=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f&title=Introduction%20to%20Docker">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on whatsapp"
+        href="https://api.whatsapp.com/send?text=Introduction%20to%20Docker%20-%20https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Docker on telegram"
+        href="https://telegram.me/share/url?text=Introduction%20to%20Docker&amp;url=https%3a%2f%2findigits.com%2fpost%2f2022%2f01%2fdocker%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>@ 2020-Present Shailesh Kumar, Some rights reserved</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

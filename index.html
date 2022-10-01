@@ -1,204 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="https://www.indigits.com/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://www.indigits.com/theme/css/custom.css" media="screen">
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<html lang="en" dir="auto">
 
-        <meta name="author" content="Shailesh Kumar" />
+<head>
+	<meta name="generator" content="Hugo 0.104.2" /><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>In Digits</title>
 
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary">
+<meta name="description" content="">
+<meta name="author" content="Shailesh Kumar">
+<link rel="canonical" href="https://indigits.com/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3299c596a7007118365635c056dd427dace22b7b8c1341fdef6fa6c31359ba10.css" integrity="sha256-MpnFlqcAcRg2VjXAVt1CfaziK3uME0H972&#43;mwxNZuhA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://indigits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://indigits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://indigits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://indigits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://indigits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://indigits.com/index.xml">
+<link rel="alternate" type="application/json" href="https://indigits.com/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<meta property="og:title" content="Musings of Shailesh Kumar"/>
-<meta name="twitter:title" content="Musings of Shailesh Kumar">
-<meta property="og:url" content="https://www.indigits.com" />
-<meta property="og:site_name" content="In Digits" />
-<meta property="og:article:author" content="Shailesh Kumar" />
-<meta name="keywords" content=" CSS,  Docker,  HTML,  JavaScript,  Overview,  Python,  Web Development,  Programming,  Updates, " />
-        <title>In Digits
-</title>
-        <link rel="shortcut icon" href="https://www.indigits.com/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://www.indigits.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://www.indigits.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://www.indigits.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://www.indigits.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://www.indigits.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://www.indigits.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://www.indigits.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://www.indigits.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://www.indigits.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://www.indigits.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
-        <link href="https://www.indigits.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="In Digits - Full Atom Feed" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-    </head>
-    <body>
-        <div id="content">
-            <div class="navbar navbar-static-top">
-                <div class="navbar-inner">
-                    <div class="container-fluid">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <a class="brand" href="https://www.indigits.com/"><span class=site-name>In Digits</span></a>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav pull-right top-menu">
-                                <li  class="active">
-                                    <a href=
-                                       https://www.indigits.com
-                                    >Home</a>
-                                </li>
-                                <li ><a href="https://www.indigits.com/about">About</a></li>
-                                <li ><a href="https://www.indigits.com/research">Research</a></li>
-                                <li ><a href="https://www.indigits.com/software">Software</a></li>
-                                <li ><a href="https://www.indigits.com/categories">Categories</a></li>
-                                <li ><a href="https://www.indigits.com/tags">Tags</a></li>
-                                <li ><a href="https://www.indigits.com/archives">Archives</a></li>
-                                <li><form class="navbar-search" action="https://www.indigits.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XJSRMENLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XJSRMENLM4', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="Namaste!" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://indigits.com/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Namaste!"/>
+<meta name="twitter:description" content=""/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "In Digits",
+  "url": "https://indigits.com/",
+  "description": "",
+  "thumbnailUrl": "https://indigits.com/favicon.ico",
+  "sameAs": [
+      "https://github.com/shailesh1729", "https://twitter.com/shailesh1729", "index.xml"
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://indigits.com/" accesskey="h" title="In Digits (Alt + H)">In Digits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span1"></div>
-                    <div class="span10">
-
-
-<div class="row-fluid">
-    <header class="page-header span12">
-    <h1><a href="https://www.indigits.com">Musings of Shailesh Kumar</a></h1>
-    </header>
-
-    <div class="row-fluid">
-        <div class="span8">
-            <header>
-                <h1 id="about-me">Namaste!</h1>
-            </header>
-            <div class="article-content">
-                <p>You have reached the home page of <em>Shailesh Kumar</em>.</p>
-<h2>Open Source</h2>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://indigits.com/research" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/software" title="Software">
+                    <span>Software</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/post" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/links" title="Links">
+                    <span>Links</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://indigits.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<div class="post-content"><p>You have reached the home page of <em>Shailesh Kumar</em>.</p>
+<h2 id="open-source">Open Source<a hidden class="anchor" aria-hidden="true" href="#open-source">#</a></h2>
 <p>I am actively working on the following open source projects.</p>
 <ul>
 <li><a href="https://github.com/carnotresearch/cr-sparse">CR-Sparse</a></li>
-<li><a href="https://convex.indigits.com/intro.html">Convex Optimization for Signal Processing Online Book</a></li>
+<li><a href="https://github.com/carnotresearch/cr-nimble">CR-Nimble</a></li>
+<li><a href="https://tisp.indigits.com">Topics in Signal Processing Online Book</a></li>
 <li><a href="https://www.indigits.com/thinkjax/intro.html">Thinking in JAX Online Book</a></li>
 </ul>
-<h2>Writings</h2>
-<p>Sometimes, I write on <a href="https://shaileshk.medium.com/">Medium</a>. Here are
-some of the recent articles I wrote:</p>
-<ul>
-<li><a href="https://towardsdatascience.com/understanding-discrete-convolution-as-polynomial-multiplication-5f94a13acd55">Understanding Discrete Convolution as Polynomial Multiplication</a>, Aug 2021.</li>
-<li><a href="https://towardsdatascience.com/wavelet-transforms-in-python-with-google-jax-cfd7ca9a39c6">Wavelet Transforms in Python with Google JAX</a>, Sep 2021.</li>
-<li><a href="https://javascript.plainenglish.io/my-favorite-vue-components-d22b7959dc4e">My Favorite Vue Components</a>, Jan 2021.</li>
-<li><a href="https://python.plainenglish.io/documentation-with-sphinx-dd86bedb7512">Write Beautiful Python Documentation with Sphinx</a>, Jul 2021.</li>
-<li><a href="https://shaileshk.medium.com/are-we-happier-in-covid-times-3b0ac9a4ab99">Are we happier in COVID times?</a>, May 2020.</li>
-<li><a href="https://aws.plainenglish.io/the-idea-behind-function-as-a-service-b6be57de9db5">The Idea Behind Function as a Service</a>, Apr 2020.</li>
-<li><a href="https://shaileshk.medium.com/on-names-that-people-adopt-from-ramayana-760b90c5e591">On names that people adopt from Ramayana!</a>, Apr 2020.</li>
-</ul>
-            </div>
-        </div>
+<hr>
 
-        <div class="span4">
-            <header>
-            <h1 id="my-projects">My Projects</h1>
-            </header>
-            <ul class="list-projects">
-                <li>
-                <a href="https://github.com/carnotresearch/cr-sparse" title="CR-Sparse">CR-Sparse</a> <span class="proj-desc">Functional models and algorithms for sparse signal processing</span>
-                </li>
-            </ul>
-            <ul class="list-projects">
-                <li>
-                <a href="https://github.com/shailesh1729/cvx-opt-book" title="Convex Optimization Book">Convex Optimization Book</a> <span class="proj-desc">A book on mathematics related to convex optimization for signal processing</span>
-                </li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="row-fluid">
-        <div class="span12">
-            <header>
-            <h1 id="recent-posts">Recent Posts <a id="allposts" href="https://www.indigits.com/archives">all posts</a></h1>
-            </header>
-        <div class="recent-posts">
-            <div itemscope class="recent-posts-article">
-                <a href="https://www.indigits.com/introduction-to-docker">
-                    Introduction to Docker
-                </a>
-                <div class="recent-posts-posted">
-                    posted in
-                    <a href="https://www.indigits.com/categories#programming-ref">Programming</a>
-                    <time itemprop="dateCreated" datetime="2022-01-18T00:00:00+05:30">Jan 18, 2022</time>
-                </div>
-            </div>
-            <div itemscope class="recent-posts-article">
-                <a href="https://www.indigits.com/beginning-web-development">
-                    Beginning Web Development
-                </a>
-                <div class="recent-posts-posted">
-                    posted in
-                    <a href="https://www.indigits.com/categories#programming-ref">Programming</a>
-                    <time itemprop="dateCreated" datetime="2022-01-13T12:35:00+05:30">Jan 13, 2022</time>
-                </div>
-            </div>
-            <div itemscope class="recent-posts-article">
-                <a href="https://www.indigits.com/paper-on-cr-sparse-published-in-joss">
-                    Paper on CR-Sparse published in JOSS
-                </a>
-                <div class="recent-posts-posted">
-                    posted in
-                    <a href="https://www.indigits.com/categories#updates-ref">Updates</a>
-                    <time itemprop="dateCreated" datetime="2021-12-03T18:00:00+05:30">Dec 03, 2021</time>
-                </div>
-            </div>
-            <div itemscope class="recent-posts-article">
-                <a href="https://www.indigits.com/the-beginning-of-open-source-journey">
-                    The beginning of open source journey
-                </a>
-                <div class="recent-posts-posted">
-                    posted in
-                    <a href="https://www.indigits.com/categories#updates-ref">Updates</a>
-                    <time itemprop="dateCreated" datetime="2014-10-17T10:30:00+05:30">Oct 17, 2014</time>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
 </div>
-                    </div>
-                    <div class="span1"></div>
-                </div>
-            </div>
-        </div>
-<footer>
 
+<article class="first-entry"> 
+  <header class="entry-header">
+    <h2>Introduction to Docker
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This article is an early draft.
+Docker is a technology to created isolated environments on a host computer. One can compare Docker to virtual machines on one hand and language specific virtual environments like conda on the other hand.
+Virtual machines provide complete hardware virtualization. Tools like conda can provide isolated environments for individual applications but they are specific to a particular language (like Python). Docker is language independent. It provides software isolation....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-18 00:00:00 +0000 UTC'>January 18, 2022</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Shailesh Kumar</footer>
+  <a class="entry-link" aria-label="post link to Introduction to Docker" href="https://indigits.com/post/2022/01/docker/"></a>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Beginning Web Development
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>How to get started? Modern web application development is a huge field. There are hundreds of technologies in use to build a high quality application. This post is a roadmap to get your grooves going to become a productive web developer.
+Frontend and Backend Any web application has two parts. One part is the piece of code that is running inside the browser of your user. Another part is the piece of code that is running inside your own servers....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-13 00:00:00 +0000 UTC'>January 13, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Shailesh Kumar</footer>
+  <a class="entry-link" aria-label="post link to Beginning Web Development" href="https://indigits.com/post/2022/01/begin-web-dev/"></a>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CR-Sparse Paper
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Paper on CR-Sparse published in JOSS My paper titled “CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX” has been published in “The Journal of Open Source Software”.
+Citation: Kumar, S., (2021). CR-Sparse: Hardware accelerated functional algorithms for sparse signal processing in Python using JAX. Journal of Open Source Software, 6(68), 3917, https://doi.org/10.21105/joss.03917</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-03 00:00:00 +0000 UTC'>December 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Shailesh Kumar</footer>
+  <a class="entry-link" aria-label="post link to CR-Sparse Paper" href="https://indigits.com/post/2021/2021-12-03-cr-sparse-paper-published/"></a>
+</article>
 
-    <div id="fpowered">
-        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
-        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
-    </div>
-</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script src="https://www.indigits.com/theme/js/elegant.prod.9e9d5ce754.js"></script>
-        <script>
-            function validateForm(query)
-            {
-                return (query.length > 0);
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Open Source Journey
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The beginning of open source journey I have been using open source software for last 15 years I would imagine. Yet my own contribution to the world of open source is probably next to zero.
+May be it is now time to pull up the socks and start doing things. This blog is being setup on Github pages on October 17, 2014 to start this journey. I have no idea how far will I be able to go ahead....</p>
+  </div>
+  <footer class="entry-footer"><span title='2014-10-17 00:00:00 +0000 UTC'>October 17, 2014</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Shailesh Kumar</footer>
+  <a class="entry-link" aria-label="post link to Open Source Journey" href="https://indigits.com/post/2014/2014-10-17-the-journey-starts/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>@ 2020-Present Shailesh Kumar, Some rights reserved</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
             }
-        </script>
-    </body>
-    <!-- Theme: Elegant built for Pelican
-        License : MIT -->
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>
