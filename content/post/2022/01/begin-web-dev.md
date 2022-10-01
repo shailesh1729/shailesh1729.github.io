@@ -1,8 +1,15 @@
 ---
 author: Shailesh Kumar
 title: Beginning Web Development
-date: 2022-01-13 12:35
-tags: Python, JavaScript, HTML, CSS, Web Development, Overview
+date: 2022-01-13
+time: 12:35
+tags: 
+  - Python
+  - JavaScript
+  - HTML
+  - CSS
+  - Web Development
+  - Overview
 category: Programming
 ---
 

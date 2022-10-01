@@ -1,3 +1,0 @@
-
-Issue related to libcurl: https://github.com/github/pages-gem/issues/509
-

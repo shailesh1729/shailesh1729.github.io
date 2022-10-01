@@ -1,21 +1,8 @@
----
-author: Shailesh Kumar
-title: Namaste!
-layout: page
-status: hidden
-slug: landing-page-about-hidden
----
-You have reached the home page of *Shailesh Kumar*.
-
-## Open Source
-
-I am actively working on the following open source projects.
-
-* [CR-Sparse](https://github.com/carnotresearch/cr-sparse)
-* [Convex Optimization for Signal Processing Online Book](https://convex.indigits.com/intro.html)
-* [Thinking in JAX Online Book](https://www.indigits.com/thinkjax/intro.html)
+# Links
 
 ## Writings
+
+### Medium
 
 Sometimes, I write on [Medium](https://shaileshk.medium.com/). Here are
 some of the recent articles I wrote:

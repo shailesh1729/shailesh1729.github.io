@@ -2,7 +2,9 @@
 author: Shailesh Kumar
 title: Introduction to Docker
 date: 2022-01-18
-tags: Docker, Overview
+tags: 
+  - Docker
+  - Overview
 category: Programming
 ---
 This article is an early draft.

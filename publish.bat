@@ -1,1 +1,1 @@
-ghp-import -n -p -f output
+ghp-import -n -p -f public

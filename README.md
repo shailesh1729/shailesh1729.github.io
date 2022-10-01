@@ -4,22 +4,16 @@
 Development
 
 ```shell
-pelican --autoreload --listen
+hugo server
 ```
 
-Or try with
-
-```shell
-make html
-make serve
-```
-
+The site can be seen locally at http://localhost:1313.
 
 Build for publishing:
 
 ```shell
-pelican content -s publishconf.py
-cp CNAME output
+hugo
+cp CNAME public
 ```
 
 The CNAME file must be copied inside gh-page branch. 
@@ -35,16 +29,10 @@ publish.bat
 
 ## Dependencies
 
+I use `hugo` static site builder. Please install it.
+
+For publishing to `gh-pages` branch, I use `ghp-import`.
+
 ```shell
-pip install pelican
 pip install ghp-import
-```
-
-Configure the elegant theme
-
-```shell
-# clone the theme code
-git clone https://github.com/Pelican-Elegant/elegant.git
-# install the theme
-pelican-themes -i <path-to-theme>
 ```

@@ -1,7 +1,4 @@
-About
-===========
-
-:slug: about
+# About
 
 I, Shailesh Kumar, am a part-time researcher, part-time developer, 
 part-time manager and part-time procrastinator. 
@@ -24,8 +21,7 @@ leave behind something worthwhile before I go.
 In my leisure, I dabble a bit in 
 learning about business, finance, history, philosophy and music.
 
-Education
----------------
+## Education
 
 I graduated in 2002 from the 
 department of Electronics and Electrical Communications Engineering,
@@ -36,24 +32,24 @@ from Bharti School of Telecommunications,
 Indian Institute of Technology, Delhi, India.
 
 
-Work Experience
-------------------
+## Work Experience
 
-I joined `Interra Systems <https://interrasystems.com/>`_ 
+
+I joined [Interra Systems ](https://interrasystems.com/) 
 right after graduation.
 At Interra, I have been involved with the development of
-the flagship products `Vega <https://interrasystems.com/analyzers.php>`_, 
-`Baton <https://interrasystems.com/file-based-qc.php>`_,
-`Orion <https://interrasystems.com/content-monitoring.php>`_,
+the flagship products [Vega ](https://interrasystems.com/analyzers.php), 
+[Baton ](https://interrasystems.com/file-based-qc.php),
+[Orion ](https://interrasystems.com/content-monitoring.php),
 and 
-`Winnow <https://interrasystems.com/content-classification.php>`_.
-I am also driving `Interra Cloud Services <https://interra.cloud/#/home>`_
+[Winnow ](https://interrasystems.com/content-classification.php).
+I am also driving [Interra Cloud Services ](https://interra.cloud/#/home)
 SaaS platform. 
 
-Currently, I am working as a Director of Engineering at Interra.
+Currently, I am working as a Director of Engineering at Interra Systems.
 
-Programming
----------------
+## Programming
+
 
 I have done coding in a variety of languages: Intel assembly, TI DSP, C, C++, 
 Java, C#, Lisp, Haskell, Rust, Go, MATLAB, R, PHP, Perl, Verilog, etc.
@@ -76,8 +72,8 @@ and for Deep Learning: TensorFlow and related libraries.
 I prefer the Kanban framework for agile software development. 
 
 
-A Salute
----------------
+## A Salute
+
 
 What I have learned so far is all thanks to the written works 
 of great scientists and engineers around the world 
@@ -89,10 +85,10 @@ I try to contribute and give back as much as I can.
 
 
 Me on: 
-`Twitter <http://twitter.com/shailesh1729>`_ |
-`FaceBook <https://www.facebook.com/shailesh.kumar.9484>`_ |
-`LinkedIn <https://www.linkedin.com/in/shaileshkumar1729>`_ |
-`GitHub <http://github.com/shailesh1729>`_ |
-`Medium <https://shaileshk.medium.com>`_ |
-`Stack Overflow <https://stackoverflow.com/users/208890/shailesh-kumar>`_ |
-`Math Exchange <https://math.stackexchange.com/users/123960/shailesh-kumar>`_ 
+[Twitter ](http://twitter.com/shailesh1729) |
+[FaceBook ](https://www.facebook.com/shailesh.kumar.9484) |
+[LinkedIn ](https://www.linkedin.com/in/shaileshkumar1729) |
+[GitHub ](http://github.com/shailesh1729) |
+[Medium ](https://shaileshk.medium.com) |
+[Stack Overflow ](https://stackoverflow.com/users/208890/shailesh-kumar) |
+[Math Exchange ](https://math.stackexchange.com/users/123960/shailesh-kumar) 

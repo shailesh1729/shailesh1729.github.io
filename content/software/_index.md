@@ -1,16 +1,18 @@
-Software
-=================
+# Software
+
 
 This page provides information about
 open source software in which I have
-contributed.
+contributed significantly.
 
-CR-Sparse
-------------------
+## CR-Sparse
 
+[GitHub](https://github.com/carnotresearch/cr-sparse)
+| [Docs](https://cr-sparse.readthedocs.io/en/latest/index.html)
+| [PyPI](https://pypi.org/project/cr-sparse/)
+| [Companion](https://github.com/carnotresearch/cr-sparse-companion)
+| [Code Cov](https://app.codecov.io/gh/carnotresearch/cr-sparse)
 
-:GITHUB: https://github.com/carnotresearch/cr-sparse
-:Docs: https://cr-sparse.readthedocs.io/en/latest/
 
 CR-Sparse is a Python library that enables efficiently solving 
 a wide variety of sparse representation based 
@@ -26,11 +28,10 @@ which enables the same high level Python code to
 get efficiently compiled on CPU, GPU and TPU architectures using XLA.
 
 
-Sparse-Plex
--------------------
+## Sparse-Plex
 
-:GITHUB: https://github.com/indigits/sparse-plex
-:Docs: https://sparse-plex.readthedocs.io/en/latest/
+[GitHub](https://github.com/indigits/sparse-plex)
+| [Docs](https://sparse-plex.readthedocs.io/en/latest/)
 
 
 A MATLAB library for exploiting the sparsity in data representations 

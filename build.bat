@@ -1,2 +1,2 @@
-pelican content -s publishconf.py
-copy CNAME output
+hugo
+copy CNAME public

@@ -135,3 +135,7 @@ __pycache__
 
 _site/*
 .sass-cache/*
+
+public
+
+.hugo*

@@ -1,7 +1,14 @@
-Research
-================
+---
+tags: 
+   - Research
+   - Compressed Sensing
+   - Sparse Representations
+   - Compressive Sensing
+---
 
-:tags: Research, Compressed Sensing, Sparse Representations, Compressive Sensing
+# Research
+
+
 
 
 I am pursuing my Ph.D. from
@@ -11,16 +18,16 @@ in Bharti School of Telecommunications.
 My research focus is on sparse representations
 and compressed sensing.
 
-Publications
-----------------------
+## Publications
+
 
 1. Kumar, S., (2021). CR-Sparse: Hardware accelerated functional
    algorithms for sparse signal processing in Python using JAX. 
    Journal of Open Source Software, 6(68), 3917, 
    https://doi.org/10.21105/joss.03917
 
-Notes
-------------------
+## Notes
+
 
 During the course of study, I have
 prepared some notes which have helped
@@ -39,14 +46,14 @@ concern regarding these notes, please
 write to me [shailesh (at) indigits (dot) com].
 
 
-Optimization for Signal Processing
-----------------------------------------
+## Topics in Signal Processing
+
 
 This is an online resource for people who want to get
 a deeper mathematical background into optimization 
 algorithms for signal processing.
 
-`Optimization for Signal Processing <https://convex.indigits.com>`_
+[Topics in Signal Processing ](https://tisp.indigits.com)
 
 This work includes coverage on:
 basic set theory, real analysis, metric spaces,
@@ -54,8 +61,8 @@ convex analysis, convex optimization algorithms,
 etc..
 
 
-Illustrated Compressed Sensing
------------------------------------------
+## Illustrated Compressed Sensing
+
 
 
 This is a slightly large set of notes covering the
@@ -66,12 +73,12 @@ the derivations of a good variety of
 results in the field from a number of
 sources.
 
-`Illustrated Compressed Sensing  <{static}/pdfs/notes/notes_compressed_sensing.pdf>`_
+[Illustrated Compressed Sensing  ](./files/notes_compressed_sensing.pdf)
 
 
 
-References
--------------------------
+## References
+
 
 This is a small bibliography of references
 I have prepared during the course of my study.
@@ -87,7 +94,7 @@ table of contents listing specific concepts
 and then a list of papers for each concept.
 See for yourself.
 
-`References  <{static}/pdfs/notes/references.pdf>`_
+[References  ](./files/references.pdf)
 
 If you would want to suggest improvements
 to the document, do let me know. 

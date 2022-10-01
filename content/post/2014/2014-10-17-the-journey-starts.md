@@ -1,8 +1,13 @@
-The beginning of open source journey
-============================================
+---
+author: Shailesh Kumar
+date: 2014-10-17
+time: 10:30
+category: Updates
+title: Open Source Journey
+---
 
-:date: 2014-10-17 10:30
-:category: Updates
+# The beginning of open source journey
+
 
 I have been using open source software for last 15 years I would imagine.
 Yet my own contribution to the world of open source is probably next to

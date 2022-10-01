@@ -1,9 +1,14 @@
-Paper on CR-Sparse published in JOSS
-=============================================
+---
+author: Shailesh Kumar
+date: 2021-12-03
+time: 18:00
+category: Updates
+title: CR-Sparse Paper
+---
+
+# Paper on CR-Sparse published in JOSS
 
 
-:date: 2021-12-03 18:00
-:category: Updates
 
 
 My paper titled 
