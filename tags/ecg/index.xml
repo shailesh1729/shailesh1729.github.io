@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Python on In Digits</title>
-    <link>https://indigits.com/tags/python/</link>
-    <description>Recent content in Python on In Digits</description>
+    <title>ECG on In Digits</title>
+    <link>https://indigits.com/tags/ecg/</link>
+    <description>Recent content in ECG on In Digits</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
     <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
     <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright>
-    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/tags/ecg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Working with ECG Data in Python</title>
       <link>https://indigits.com/post/2022/10/ecg_python/</link>
@@ -19,16 +19,6 @@
       <description>Python has excellent support for digital signal processing of ECG signals. In this post, we shall explore some basic capabilities for plotting ECG data and doing some basic signal processing for identifying the R peaks inside the signals.
 We shall use NumPy for basic numerical computations and matplotlib for plotting.
 # numerical computations import numpy as np # plotting from matplotlib import pyplot as plt SciPy includes a sample electrocardiogram signal.</description>
-    </item>
-    
-    <item>
-      <title>Beginning Web Development</title>
-      <link>https://indigits.com/post/2022/01/begin-web-dev/</link>
-      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
-      <author>shailesh@indigits.com (Shailesh Kumar)</author>
-      <guid>https://indigits.com/post/2022/01/begin-web-dev/</guid>
-      <description>How to get started? Modern web application development is a huge field. There are hundreds of technologies in use to build a high quality application. This post is a roadmap to get your grooves going to become a productive web developer.
-Frontend and Backend Any web application has two parts. One part is the piece of code that is running inside the browser of your user. Another part is the piece of code that is running inside your own servers.</description>
     </item>
     
   </channel>

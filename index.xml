@@ -9,7 +9,18 @@
     <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
     <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
     <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright>
-    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working with ECG Data in Python</title>
+      <link>https://indigits.com/post/2022/10/ecg_python/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2022/10/ecg_python/</guid>
+      <description>Python has excellent support for digital signal processing of ECG signals. In this post, we shall explore some basic capabilities for plotting ECG data and doing some basic signal processing for identifying the R peaks inside the signals.
+We shall use NumPy for basic numerical computations and matplotlib for plotting.
+# numerical computations import numpy as np # plotting from matplotlib import pyplot as plt SciPy includes a sample electrocardiogram signal.</description>
+    </item>
+    
     <item>
       <title>Introduction to Docker</title>
       <link>https://indigits.com/post/2022/01/docker/</link>
