@@ -1,2 +1,1 @@
-hugo
-copy CNAME public
+hugo --minify

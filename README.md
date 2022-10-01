@@ -12,12 +12,8 @@ The site can be seen locally at http://localhost:1313.
 Build for publishing:
 
 ```shell
-hugo
-cp CNAME public
+hugo --minify
 ```
-
-The CNAME file must be copied inside gh-page branch. 
-Otherwise, Github Pages will stop recognizing the website.
 
 Alternatively, use the `build.bat` script.
 
