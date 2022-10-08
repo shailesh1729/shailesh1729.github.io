@@ -9,22 +9,40 @@
     <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
     <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
     <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright>
-    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ECG</title>
-      <link>https://indigits.com/tags/ecg/</link>
-      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <title>CR-Sparse</title>
+      <link>https://indigits.com/tags/cr-sparse/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       <author>shailesh@indigits.com (Shailesh Kumar)</author>
-      <guid>https://indigits.com/tags/ecg/</guid>
+      <guid>https://indigits.com/tags/cr-sparse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAX</title>
+      <link>https://indigits.com/tags/jax/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/tags/jax/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
       <link>https://indigits.com/tags/python/</link>
-      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       <author>shailesh@indigits.com (Shailesh Kumar)</author>
       <guid>https://indigits.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECG</title>
+      <link>https://indigits.com/tags/ecg/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/tags/ecg/</guid>
       <description></description>
     </item>
     

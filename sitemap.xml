@@ -2,27 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://indigits.com/tags/ecg/</loc>
-    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+    <loc>https://indigits.com/tags/cr-sparse/</loc>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://indigits.com/post/2022/10/crsparse_032/</loc>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://indigits.com/tags/jax/</loc>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://indigits.com/</loc>
-    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://indigits.com/post/</loc>
-    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://indigits.com/tags/python/</loc>
-    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://indigits.com/tags/</loc>
+    <lastmod>2022-10-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://indigits.com/tags/ecg/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

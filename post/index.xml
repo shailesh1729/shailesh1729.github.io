@@ -9,7 +9,18 @@
     <managingEditor>shailesh@indigits.com (Shailesh Kumar)</managingEditor>
     <webMaster>shailesh@indigits.com (Shailesh Kumar)</webMaster>
     <copyright>@ 2020-Present Shailesh Kumar, Some rights reserved</copyright>
-    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://indigits.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CR-Sparse v0.3.2</title>
+      <link>https://indigits.com/post/2022/10/crsparse_032/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      <author>shailesh@indigits.com (Shailesh Kumar)</author>
+      <guid>https://indigits.com/post/2022/10/crsparse_032/</guid>
+      <description>This release has been a month in the making. The official release notes are here.
+A Thinking in JAX tutorial has been introduced in this release for newbies to get a better hang of JAX based numerical computing.
+The main sparse recovery algorithm introduced in this release is SPGL1 (Spectral Projected Gradient L1). Testing the algorithm under different conditions was an interesting experience. It finally gave me a strong motivation to port Sparco problems into CR-Sparse.</description>
+    </item>
+    
     <item>
       <title>Working with ECG Data in Python</title>
       <link>https://indigits.com/post/2022/10/ecg_python/</link>
