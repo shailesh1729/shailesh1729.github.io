@@ -66,13 +66,14 @@ params:
   # Relearn theme options
   themeVariant:
     - 'auto'
-    - 'relearn-light'
-    - 'relearn-dark'
+    - 'sienna'
     - 'zen-light'
     - 'zen-dark'
-  themeVariantAuto:
     - 'relearn-light'
     - 'relearn-dark'
+  themeVariantAuto:
+    - 'zen-light'
+    - 'zen-dark'
   disableLandingPageButton: false
   disableSearch: false
   disableBreadcrumb: false

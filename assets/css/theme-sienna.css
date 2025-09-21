@@ -1,0 +1,60 @@
+/* Custom theme inspired by spf13.com, now named 'sienna' */
+:root {
+  /* Font family */
+  --MAIN-FONT-family: 'Lora', 'Georgia', serif;
+  --MAIN-TITLES-FONT-family: 'Montserrat', 'Arial', sans-serif;
+
+  /* Colors (based on spf13.com look) */
+  --PRIMARY-color: #2d2d2d; /* dark gray for text */
+  --SECONDARY-color: #f5f5f5; /* light background */
+  --ACCENT-color: #e67e22; /* orange accent */
+
+  --MAIN-TEXT-color: #2d2d2d;
+  --MAIN-LINK-color: #e67e22;
+  --MAIN-LINK-HOVER-color: #b35400;
+  --MAIN-BG-color: #f5f5f5;
+  --MAIN-TITLES-TEXT-color: #222;
+
+  --CODE-theme: relearn-light;
+  --CODE-BLOCK-color: #2d2d2d;
+  --CODE-BLOCK-BG-color: #f8f8f8;
+  --CODE-BLOCK-BORDER-color: #e0e0e0;
+  --CODE-INLINE-color: #e67e22;
+  --CODE-INLINE-BG-color: #fff8e1;
+  --CODE-INLINE-BORDER-color: #ffe0b2;
+
+  --MENU-HEADER-color: #e67e22;
+  --MENU-SEARCH-color: #2d2d2d;
+  --MENU-SEARCH-BG-color: #fff;
+  --MENU-SEARCH-BORDER-color: #e0e0e0;
+  --MENU-HOME-LINK-color: #e67e22;
+  --MENU-HOME-LINK-HOVER-color: #b35400;
+  --MENU-SECTIONS-BG-color: #fff;
+  --MENU-SECTIONS-LINK-color: #2d2d2d;
+  --MENU-SECTIONS-LINK-HOVER-color: #e67e22;
+  --MENU-SECTIONS-ACTIVE-BG-color: #ffe0b2;
+  --MENU-SECTION-ACTIVE-CATEGORY-color: #e67e22;
+  --MENU-SECTION-SEPARATOR-color: #e0e0e0;
+
+  --BOX-CAPTION-color: #fff;
+  --BOX-BG-color: #e67e22;
+  --BOX-TEXT-color: #2d2d2d;
+}
+
+body, .R-body {
+  font-family: var(--MAIN-FONT-family);
+  background: var(--MAIN-BG-color);
+  color: var(--MAIN-TEXT-color);
+}
+
+h1, h2, h3, h4, h5, h6, .R-title {
+  font-family: var(--MAIN-TITLES-FONT-family);
+  color: var(--MAIN-TITLES-TEXT-color);
+}
+
+a, .R-link {
+  color: var(--MAIN-LINK-color);
+}
+a:hover, .R-link:hover {
+  color: var(--MAIN-LINK-HOVER-color);
+}
