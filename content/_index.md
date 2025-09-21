@@ -1,11 +1,8 @@
----
 author: Shailesh Kumar
 title: Namaste!
 layout: page
-status: hidden
 slug: landing-page-about-hidden
----
-You have reached the home page of *Shailesh Kumar*.
+slug: landing-page-about-hidden
 
 ## Open Source
 

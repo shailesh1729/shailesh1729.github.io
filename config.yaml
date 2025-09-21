@@ -1,8 +1,9 @@
 baseURL: "https://indigits.com/"
 languageCode: 'en-us'
 title: 'In Digits'
-theme: PaperMod
-paginate: 5
+theme: "relearn"
+pagination:
+  pagerSize: 5
 DefaultContentLanguage: en
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -62,48 +63,58 @@ outputs:
         - JSON
 
 params:
-    ShowShareButtons: true
-    ShowReadingTime: true
-    ShowPostNavLinks: true
-    ShowBreadCrumbs: true
-    ShowCodeCopyButtons: true
-    ShowRssButtonInSectionTermList: true
-    ShowToc: true
-    defaultTheme: auto
-
-    socialIcons:
-        - name: github
-          url: "https://github.com/shailesh1729"
-        - name: twitter
-          url: "https://twitter.com/shailesh1729"
-        - name: Rss
-          url: "index.xml"
-
-    editPost:
-      URL: "https://github.com/shailesh1729/shailesh1729.github.io/content"
-      Text: "Suggest Changes" # edit text
-      appendFilePath: true # to append file path to Edit link
-
-    cover:
-      responsiveImages: false
-      linkFullImages: true
+  # Relearn theme options
+  themeVariant:
+    - 'auto'
+    - 'relearn-light'
+    - 'relearn-dark'
+    - 'zen-light'
+    - 'zen-dark'
+  themeVariantAuto:
+    - 'relearn-light'
+    - 'relearn-dark'
+  disableLandingPageButton: false
+  disableSearch: false
+  disableBreadcrumb: false
+  disableNextPrev: false
+  disableInlineCopyToClipboard: false
+  enableBlockCodeWrap: true
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  defaultTheme: auto
+  socialIcons:
+    - name: github
+      url: "https://github.com/shailesh1729"
+    - name: twitter
+      url: "https://twitter.com/shailesh1729"
+    - name: Rss
+      url: "index.xml"
+  editPost:
+    URL: "https://github.com/shailesh1729/shailesh1729.github.io/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+  cover:
+    responsiveImages: false
+    linkFullImages: true
 privacy:
-    vimeo:
-        disabled: false
-        simple: true
-
-    twitter:
-        disabled: false
-        enableDNT: true
-        simple: true
-
-    instagram:
-        disabled: false
-        simple: true
-
-    youtube:
-        disabled: false
-        privacyEnhanced: true
+  vimeo:
+    disabled: false
+    simple: true
+  x:
+    disabled: false
+    enableDNT: true
+    simple: true
+  instagram:
+    disabled: false
+    simple: true
+  youtube:
+    disabled: false
+    privacyEnhanced: true
 
 sitemap:
   changefreq: monthly
