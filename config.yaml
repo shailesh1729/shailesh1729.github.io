@@ -22,32 +22,6 @@ author:
   name: Shailesh Kumar
   email: shailesh@indigits.com
 
-menu:
-    main:
-        - name: Research
-          url: research
-          weight: 1
-        - name: Software
-          url: software
-          weight: 2
-        - name: Posts
-          url: post
-          weight: 3
-        - name: Archives
-          url: archives/
-          weight: 5
-        - name: Search
-          url: search/
-          weight: 5
-        - name: Links
-          url: links
-          weight: 8
-        - name: About
-          url: about
-          weight: 9
-        - name: Tags
-          url: tags/
-          weight: 10
 
 
 markup:
@@ -65,12 +39,10 @@ outputs:
 params:
   # Relearn theme options
   themeVariant:
-    - 'auto'
     - 'sienna'
+    - 'auto'
     - 'zen-light'
     - 'zen-dark'
-    - 'relearn-light'
-    - 'relearn-dark'
   themeVariantAuto:
     - 'zen-light'
     - 'zen-dark'

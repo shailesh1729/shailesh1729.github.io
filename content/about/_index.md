@@ -1,4 +1,6 @@
-# About
+---
+title: About
+---
 
 I, Shailesh Kumar, am a part-time researcher, part-time developer, 
 part-time manager and part-time procrastinator. 

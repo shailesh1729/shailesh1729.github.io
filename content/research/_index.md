@@ -1,4 +1,5 @@
 ---
+title: Research
 tags: 
    - Research
    - Compressed Sensing
@@ -6,17 +7,6 @@ tags:
    - Compressive Sensing
 ---
 
-# Research
-
-
-
-
-I am pursuing my Ph.D. from
-Indian Institute of Technology, Delhi, India
-in Bharti School of Telecommunications.
-
-My research focus is on sparse representations
-and compressed sensing.
 
 ## Publications
 
