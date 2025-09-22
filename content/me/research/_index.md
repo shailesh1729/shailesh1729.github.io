@@ -11,14 +11,12 @@ weight: 2
 
 ## Publications
 
-
 1. Kumar, S., (2021). CR-Sparse: Hardware accelerated functional
    algorithms for sparse signal processing in Python using JAX. 
    Journal of Open Source Software, 6(68), 3917, 
    https://doi.org/10.21105/joss.03917
 
 ## Notes
-
 
 During the course of study, I have
 prepared some notes which have helped
@@ -36,9 +34,7 @@ In case you have any feedback or any
 concern regarding these notes, please
 write to me [shailesh (at) indigits (dot) com].
 
-
 ## Topics in Signal Processing
-
 
 This is an online resource for people who want to get
 a deeper mathematical background into optimization 
@@ -64,12 +60,9 @@ the derivations of a good variety of
 results in the field from a number of
 sources.
 
-[Illustrated Compressed Sensing  ](./files/notes_compressed_sensing.pdf)
-
-
+[Illustrated Compressed Sensing](./files/notes_compressed_sensing.pdf)
 
 ## References
-
 
 This is a small bibliography of references
 I have prepared during the course of my study.
@@ -85,9 +78,7 @@ table of contents listing specific concepts
 and then a list of papers for each concept.
 See for yourself.
 
-[References  ](./files/references.pdf)
+[References](./files/references.pdf)
 
 If you would want to suggest improvements
-to the document, do let me know. 
-
-
+to the document, do let me know.
