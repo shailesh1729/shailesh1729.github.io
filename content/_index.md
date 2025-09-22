@@ -1,5 +1,5 @@
 ---
-title: Signals, Software, and Science
+title: In Digits
 author: Shailesh Kumar
 ---
 
