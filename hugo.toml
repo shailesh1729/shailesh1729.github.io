@@ -30,16 +30,26 @@ endLevel = 3
 ordered = true
 startLevel = 2
 
+# Enable output formats needed by the theme
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS"]
+page = ["HTML"]
 
+# Configuration for the Relearn theme
 [params]
 themeVariant = ["sienna", "auto", "zen-light", "zen-dark"]
 themeVariantAuto = ["zen-light", "zen-dark"]
+ # Set the title of the sidebar menu
+titleSeparator = "::"
 disableLandingPageButton = false
-disableSearch = false
+# Disable search functionality, if you want
+[search]
+disable = false
+# Disable the breadcrumb navigation, if you want
 disableBreadcrumb = false
+# Disable next/previous links, if you want
 disableNextPrev = false
+# Disable inline copy to clipboard button in code blocks, if you want
 disableInlineCopyToClipboard = false
 enableBlockCodeWrap = true
 ShowShareButtons = true
@@ -50,6 +60,10 @@ ShowCodeCopyButtons = true
 ShowRssButtonInSectionTermList = true
 ShowToc = true
 defaultTheme = "auto"
+# Automatically expand the menu to the current page
+alwaysopen = true
+# Enable KaTeX for math formulas
+math = true
 
 [[params.socialIcons]]
 name = "github"

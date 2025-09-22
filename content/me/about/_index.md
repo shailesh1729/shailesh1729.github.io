@@ -1,5 +1,6 @@
 ---
 title: About
+weight: 10
 ---
 
 I, Shailesh Kumar, am a part-time researcher, part-time developer, 
