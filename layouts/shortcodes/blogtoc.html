@@ -1,0 +1,19 @@
+<div class="blogtoc">
+  {{ $pages := (where .Site.RegularPages "Section" "post").ByDate.Reverse }}
+  {{ $currentMonthYear := "" }}
+  {{ range $pages }}
+    {{ $monthYear := .Date.Format "January 2006" }}
+    {{ if ne $monthYear $currentMonthYear }}
+      {{ if $currentMonthYear }}
+        </ul>
+      {{ end }}
+      <h2>{{ $monthYear }}</h2>
+      <ul>
+      {{ $currentMonthYear = $monthYear }}
+    {{ end }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Date.Format "2006-01-02" }} — {{ .Title }}</a>
+    </li>
+  {{ end }}
+  </ul>
+</div>
