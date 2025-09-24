@@ -312,6 +312,193 @@ with closing(urlopen('https://www.python.org')) as page:
 
 These examples clearly demonstrate that context managers are more than just file management; they represent a pattern for consistently and robustly managing a wide range of resources.
 
+## Crafting Your Own Context Managers
+
+Now that you've seen how context managers work in the wild, let's learn how to build your own. This is useful when you have a custom resource—such as a network connection, a temporary file, or even just some repetitive setup and teardown logic—that you want to manage elegantly. There are two main ways to do it: using a **class** or using a **generator function** with the `contextlib` module.
+
+### Class-based Context Managers
+
+This is the most straightforward way to implement the `__enter__` and `__exit__` protocol directly. You create a class, and inside that class, you define these two special methods.
+
+**Example: A Simple Timer**
+
+Let's create a `Timer` context manager that measures the time it takes for a block of code to run.
+
+```Python
+import time
+
+class Timer:
+    def __enter__(self):
+        # This method is called when the 'with' block is entered.
+        self.start_time = time.time()
+        print("Timer started...")
+        # We don't need to return anything here, so we'll just continue.
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # This method is called when the 'with' block is exited.
+        end_time = time.time()
+        elapsed_time = end_time - self.start_time
+        print(f"Timer stopped. Elapsed time: {elapsed_time:.4f} seconds.")
+
+# Let's use our new context manager!
+with Timer():
+    # Simulate some work
+    time.sleep(1.5)
+```
+
+**Walkthrough:**
+
+1. **`__enter__`**: When `with Timer():` is called, our `__enter__` method is triggered. It records the current time using `time.time()`. This is our **setup** phase.
+2. **`__exit__`**: Once the `with` block is completed, `__exit__` is automatically called. It calculates the elapsed time and prints a formatted message. This is our **teardown** phase.
+
+### The `@contextmanager` Decorator
+
+For simpler cases, writing a whole class can feel like overkill. Python’s `contextlib` module provides the `@contextmanager` decorator, which lets you create a context manager using a generator function. This is often a more elegant and readable solution.
+
+**Example: The Same Timer, but with a Decorator**
+
+```Python
+import time
+from contextlib import contextmanager
+
+@contextmanager
+def timer_decorator():
+    # This is the 'setup' phase.
+    start_time = time.time()
+    print("Timer started...")
+    
+    # The 'yield' keyword is what separates the setup from the teardown.
+    # The code inside the 'with' block runs right here.
+    try:
+        yield
+    finally:
+        # This is the 'teardown' phase, guaranteed to run.
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"Timer stopped. Elapsed time: {elapsed_time:.4f} seconds.")
+
+# Use the function as a context manager
+with timer_decorator():
+    time.sleep(1.5)
+```
+
+**Walkthrough:**
+
+1. **`@contextmanager`**: This decorator automatically turns your generator function into a context manager.
+2. **Setup**: All the code **before** the `yield` statement is your setup logic.
+3. **The `yield` statement**: This is the most crucial part. It pauses the function and hands control over to the code block inside the `with` statement. The value yielded (if any) is assigned to the `as` variable.
+4. **Teardown**: When the `with` block finishes, the function resumes right after the `yield` statement. The `finally` block ensures that your teardown code (in this case, calculating and printing the time) always runs, even if an exception occurs inside the `with` block.
+
+As you can see, both methods achieve the same result; however, the @contextmanager decorator often yields more concise and readable code for simple cases.
+
+## More Custom Context Manager Examples
+
+Here are a few more examples of building your own context managers to solve everyday, real-life programming challenges.
+
+### Managing a Database Connection
+
+In a web application or data script, you often need to connect to a database, perform a few queries, and then close the connection. A context manager is the perfect tool for this, as it guarantees the connection is always closed, preventing a common source of resource leaks.
+
+```Python
+import sqlite3
+
+@contextmanager
+def db_connection(db_name):
+    conn = None
+    try:
+        conn = sqlite3.connect(db_name)
+        yield conn
+    finally:
+        if conn:
+            conn.close()
+
+# Real-world usage:
+with db_connection('my_app.db') as conn:
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    users = cursor.fetchall()
+    print(f"Found {len(users)} users.")
+```
+
+**What's Happening:**
+
+- **Setup:** The generator function first creates the database connection.
+- **`yield`:** It then yields the connection object. The `with` block now has access to this `conn` object.
+- **Teardown:** The `finally` block ensures that the `conn.close()` method is always called, whether the code inside the `with` block succeeds or raises an error. This is crucial for preventing connections from being left open.
+
+### Suppressing `print` Statements for Testing
+
+When you're testing functions that print to the console, it can clutter your test output. You can create a context manager to temporarily redirect `sys.stdout` (standard output) so that `print` statements are captured instead of being displayed. This is a convenient utility for clean test results.
+
+```Python
+import sys
+from io import StringIO
+
+@contextmanager
+def suppress_stdout():
+    old_stdout = sys.stdout
+    sys.stdout = StringIO()
+    try:
+        yield
+    finally:
+        sys.stdout = old_stdout
+
+def my_function_that_prints():
+    print("This message should not appear on the console!")
+
+# Use the context manager to suppress the output
+with suppress_stdout():
+    my_function_that_prints()
+
+print("The test is complete, and this message appears as normal.")
+```
+
+**What's Happening:**
+
+- **Setup:** We save the original `sys.stdout` and replace it with a `StringIO` object, which acts like a file in memory.
+- **`yield`:** The `with` block executes, and any `print` statements write to our in-memory "file" instead of the console.
+- **Teardown:** The `finally` block restores `sys.stdout` to its original value, so normal printing resumes after the block is exited.
+
+### Reverting an Attribute Change
+
+Sometimes, you need to temporarily change a global setting or an object's attribute for a single function call, but you must remember to revert it. A context manager is perfect for this.
+
+```Python
+class temporary_attr:
+    def __init__(self, obj, attr_name, new_value):
+        self.obj = obj
+        self.attr_name = attr_name
+        self.new_value = new_value
+        self.old_value = None
+
+    def __enter__(self):
+        self.old_value = getattr(self.obj, self.attr_name)
+        setattr(self.obj, self.attr_name, self.new_value)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        setattr(self.obj, self.attr_name, self.old_value)
+
+# Example object
+class User:
+    def __init__(self, is_admin=False):
+        self.is_admin = is_admin
+
+user = User()
+print(f"Before: User is admin? {user.is_admin}")
+
+# Temporarily make the user an admin
+with temporary_attr(user, 'is_admin', True):
+    print(f"Inside 'with': User is admin? {user.is_admin}")
+
+print(f"After: User is admin? {user.is_admin}")
+```
+
+**What's Happening:**
+
+- **Setup:** In `__enter__`, we first save the original value of the attribute, and then we set the new, temporary value.
+- **Teardown:** In `__exit__`, we use the stored `self.old_value` to restore the attribute to its original state.
+
 ### Simulating `contextlib.closing`
 
 The `closing` function is actually a class that implements the context manager protocol. It’s designed to be a thin wrapper around another object.
@@ -356,3 +543,112 @@ print("Outside the 'with' block.")
 3. **`__exit__(self, exc_type, exc_val, exc_tb)`**: When the `with` block is exited for any reason (normal completion, an exception, or a `return` statement), Python calls this method. The `exc_type`, `exc_val`, and `exc_tb` arguments are used for advanced exception handling, which we won't use in this simple example. The crucial part is that this method calls `self.thing.close()`, ensuring that our resource is cleaned up regardless of the circumstances.
 
 This simple class effectively turns any object with a `close()` method into a fully compliant context manager, proving that the `with` statement is just a clever bit of syntactic sugar built on a straightforward protocol.
+
+These examples should provide a robust set of real-life scenarios that demonstrate the power and flexibility of custom context managers. Now, are you ready to tackle the final, more advanced topics of exception handling and nesting?
+
+## Advanced Context Manager Topics
+
+### Exception Handling in `__exit__`
+
+One of the most powerful features of context managers is their ability to handle exceptions that occur inside the `with` block. Remember those three arguments to `__exit__`: `exc_type`, `exc_val`, and `traceback`? They're not just for show!
+
+- If the `with` block runs without an error, all three arguments will be `None`.
+- If an exception occurs, they will contain the type of the exception, the exception object itself, and the traceback object.
+
+The magic part is what happens next. If the `__exit__` method **returns a truthy value** (like `True`), it tells Python to **suppress the exception**. This means Python will pretend the error never happened and continue executing the code after the `with` block.
+
+**Example: Suppressing an Exception**
+
+Let's create a context manager that safely handles a `ZeroDivisionError` and prevents the program from crashing.
+
+```Python
+class Suppressor:
+    def __enter__(self):
+        print("Entering context...")
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Exiting context...")
+        if exc_type is ZeroDivisionError:
+            print("Caught a ZeroDivisionError! Suppressing it.")
+            return True  # Suppress the exception
+
+print("Before the 'with' block.")
+with Suppressor():
+    x = 10 / 0  # This will raise a ZeroDivisionError!
+    print("This line will never be reached.")
+
+print("After the 'with' block. The program continues!")
+```
+
+**Walkthrough:**
+
+1. The `with` block is entered.
+2. The `ZeroDivisionError` is raised. Python's normal behavior would be to stop the program and print a traceback.
+3. However, because this is a `with` statement, it calls our `__exit__` method first, passing in the details of the exception.
+4. Our `__exit__` method checks if the exception is a `ZeroDivisionError`. It is, so it prints a message and **returns `True`**.
+5. Python sees that `True` return value and understands it needs to **suppress the exception**, allowing the code to continue running from the `print` statement after the `with` block. This is a potent tool for building resilient code.
+### Nesting Context Managers
+
+For tasks that require managing multiple resources, you can **nest** `with` statements. This is a typical pattern for tasks such as opening two different files simultaneously.
+
+**Method 1: Nested Blocks**
+
+```Python
+with open('file1.txt', 'r') as f1:
+    with open('file2.txt', 'w') as f2:
+        for line in f1:
+            f2.write(line)
+```
+
+This is a perfectly valid and readable way to nest them. However, for a long chain of `with` statements, it can lead to deeply indented code.
+
+**Method 2: One-Liner (Python 3.1 and later)**
+
+To avoid excessive nesting, you can use a single `with` statement with multiple context managers separated by commas.
+
+```Python
+with open('file1.txt', 'r') as f1, open('file2.txt', 'w') as f2:
+    for line in f1:
+        f2.write(line)
+```
+
+This is a more concise and readable approach. The cleanup process works as expected: the context managers are exited in the reverse order of their entry, ensuring proper resource management.
+
+## Summary & Key Learnings
+
+This journey into the **`with` statement** has shown us that it's far more than a simple convenience for file handling. It's a foundational concept in writing clean, safe, and robust Python code.
+
+Here are the key takeaways to remember:
+
+- **It's for Resource Management:** The primary purpose of a context manager is to guarantee that resources—like files, network connections, or locks—are properly set up (`__enter__`) and torn down (`__exit__`) automatically, even if errors occur.    
+- **It Prevents Leaks:** By ensuring that the cleanup logic in `__exit__` is always executed, the `with` statement prevents common bugs like resource leaks and deadlocks.
+- **It's a Protocol, Not a Keyword:** Any object that implements the `__enter__` and `__exit__` methods can be used as a context manager. This simple protocol is what makes the pattern so flexible.
+- **Classes vs. Decorators:** You can create your own custom context managers using a class (for more complex logic) or the elegant `@contextmanager` decorator from the `contextlib` module (for more straightforward, generator-based logic).
+- **Advanced Power:** Context managers can be used to handle exceptions gracefully and can be nested to manage multiple resources simultaneously, making them incredibly versatile.
+
+## What's Next? Take Action!
+
+Now that you understand the power of context managers, your next step is to put this knowledge into practice. The concepts you've learned here—resource management, setup, and teardown—are a key part of writing production-ready code.
+
+- **Review Your Codebase:** Look for instances in your existing projects where you manually open and close resources. Can you refactor them to use a `with` statement?
+- **Build a Novel Context Manager:** Consider a repetitive task in your own code. Is there a setup and teardown process involved? Could you write a custom context manager to make that task cleaner? For example, you could write a context manager to change a logger's level temporarily or to profile a block of code and write the results to a file.
+- **Explore More Python Concepts:** If you enjoyed diving into the mechanics of the `with` statement, you'll love exploring other "Pythonic" concepts that make your code cleaner and more efficient. Try looking into:
+    - **Decorators:** The `@contextmanager` decorator is a perfect entry point into understanding how decorators work, a powerful tool for modifying functions or classes.
+    - **Iterators and Generators:** The `yield` keyword in our generator-based context manager is a fundamental part of generators, which are particularly well-suited for efficiently working with large datasets.
+    - **Metaclasses:** If you want to go even deeper into Python's object model, metaclasses are the ultimate topic for creating classes that define the behavior of other classes.
+
+Embrace the `with` statement as a powerful tool in your arsenal. Happy coding!
+
+## References
+
+To dive deeper into the world of context managers and related Python topics, check out these excellent resources:
+
+- **Python Documentation**: The official documentation is always the best place to start.
+    - [PEP 343 – The “with” Statement | peps.python.org](https://peps.python.org/pep-0343/) 
+    - [8. Compound statements — Python 3.13.7 documentation](https://docs.python.org/3/reference/compound_stmts.html#with)
+    - [contextlib — Utilities for with-statement contexts — Python 3.13.7 documentation](https://docs.python.org/3/library/contextlib.html)
+- **Blog Articles & Tutorials**: These resources offer practical insights and alternative explanations.
+    - [Primer on Python Decorators by Real Python](https://realpython.com/primer-on-python-decorators/) - A great resource to understand decorators, a concept closely related to the `@contextmanager` decorator.
+    - [Context Manager in Python - GeeksforGeeks](https://www.geeksforgeeks.org/python/context-manager-in-python/) - A clear and concise overview with more examples.
+- **Books**: For a more comprehensive look, consider these well-regarded Python books.
+    - [Fluent Python, the lizard book](https://www.fluentpython.com/) - This book has an excellent chapter on context managers that goes into even more detail.
