@@ -42,15 +42,12 @@ themeVariantAuto = ["zen-light", "zen-dark"]
  # Set the title of the sidebar menu
 titleSeparator = "::"
 disableLandingPageButton = false
-# Disable search functionality, if you want
-[search]
-disable = false
+# Disable inline copy to clipboard button in code blocks, if you want
+disableInlineCopyToClipboard = true
 # Disable the breadcrumb navigation, if you want
 disableBreadcrumb = false
 # Disable next/previous links, if you want
 disableNextPrev = false
-# Disable inline copy to clipboard button in code blocks, if you want
-disableInlineCopyToClipboard = false
 enableBlockCodeWrap = true
 ShowShareButtons = true
 ShowReadingTime = true
@@ -64,6 +61,9 @@ defaultTheme = "auto"
 alwaysopen = true
 # Enable KaTeX for math formulas
 math = true
+# Disable search functionality, if you want
+[search]
+disable = false
 
 [[params.socialIcons]]
 name = "github"
