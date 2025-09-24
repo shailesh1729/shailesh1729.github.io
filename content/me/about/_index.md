@@ -1,55 +1,27 @@
 ---
 title: About
 weight: 10
+date: 2025-09-24
 ---
 
-I, Shailesh Kumar, am a part-time researcher, part-time developer, 
-part-time manager and part-time procrastinator. 
+I am Shailesh Kumar, a passionate researcher, developer, and engineering leader with over two decades of experience in software design, development, support, and management. My expertise spans digital payments, digital media technologies, machine learning, computer vision, cloud computing, and SaaS solutions. I currently serve as Vice President of Engineering at Payrix, a Worldpay company. 
 
+Much of my workday involves collaborating across teams, resolving complex technical challenges, mentoring colleagues, and driving innovation. I enjoy solving knotty problems—whether it’s refining product architecture, optimizing operational workflows, or building new technical solutions. The rest of my time is spent learning new technologies, building meaningful tools, and pursuing personal growth and development.
 
-I have around 20 years of experience in software design, 
-development, support, and management. 
-My areas of interest include digital media technologies, 
-machine learning, computer vision, cloud computing, and SaaS. 
-
-
-I usually spend half of my day answering all the emails, 
-Skype or phone calls, chats, helping people resolve knotty issues, 
-making slides, fixing Excel sheets, or filling up some or other paperwork. 
-
-The other half is spent learning something new or building something useful. 
-I still dream that I will be able to build and 
-leave behind something worthwhile before I go. 
-
-In my leisure, I dabble a bit in 
-learning about business, finance, history, philosophy and music.
+Outside of work, I actively explore topics in business, finance, history, philosophy, and music, always seeking to broaden my perspective.
 
 ## Education
 
-I graduated in 2002 from the 
-department of Electronics and Electrical Communications Engineering,
-Indian Institute of Technology, Kharagpur, India.
+I graduated in 2002 from the Department of Electronics and Electrical Communications Engineering at the Indian Institute of Technology (IIT), Kharagpur, India. 
 
-Currently, I am pursuing my part-time Ph.D. 
-from Bharti School of Telecommunications,
-Indian Institute of Technology, Delhi, India.
+I pursued a part-time Ph.D. at the Bharti School of Telecommunications, Indian Institute of Technology (IIT) Delhi, India, but later dropped out of the program.
 
 
 ## Work Experience
 
+I began my professional journey at Interra Systems, joining right after graduation in 2002. Over the years, I have contributed to the development of Interra's flagship products, including [Vega](https://interrasystems.com/analyzers.php),  [Baton](https://interrasystems.com/file-based-qc.php), [Orion ](https://interrasystems.com/content-monitoring.php), and Winnow. I am fortunate to have worked with an excellent group of professionals for about two decades at Interra. 
 
-I joined [Interra Systems ](https://interrasystems.com/) 
-right after graduation.
-At Interra, I have been involved with the development of
-the flagship products [Vega ](https://interrasystems.com/analyzers.php), 
-[Baton ](https://interrasystems.com/file-based-qc.php),
-[Orion ](https://interrasystems.com/content-monitoring.php),
-and 
-[Winnow ](https://interrasystems.com/content-classification.php).
-I am also driving [Interra Cloud Services ](https://interra.cloud/#/home)
-SaaS platform. 
-
-Currently, I am working as a Director of Engineering at Interra Systems.
+I joined Worldpay (then part of FIS) in 2023, serving as Vice President of Engineering for Payrix, an embedded payments service.
 
 ## Programming
 
@@ -59,33 +31,17 @@ Java, C#, Lisp, Haskell, Rust, Go, MATLAB, R, PHP, Perl, Verilog, etc.
 
 My current workhorses are Python and JavaScript. 
 
-It took me a while to get out of the dogma of OOPS. 
-Functional programming probably had the deepest impact on 
-my software design thinking. Haskell is mind-blowing.
-However, day to day programming works well with 
-multi-paradigm languages. 
-I believe that C++ and Python are 
-decent practical solutions. 
+It took me a while to break free from the dogma of OOPs.  Functional programming had the most profound impact on my software design thinking. Haskell is mind-blowing. However, day-to-day programming works well with multi-paradigm languages. C++, Python, and Go are decent practical solutions. 
 
-What really matters is to choose the right tool for a job based 
-on skill, experience, and fitness for the job. 
-For web development, I like Vue and NodeJS these days 
-and for Deep Learning: TensorFlow and related libraries. 
+What really matters is choosing the right tool for the job based on skill, experience, and fitness for the job.  
 
-I prefer the Kanban framework for agile software development. 
-
+I prefer the Kanban framework for agile software development, but most of the time end up working with SCRUM teams. 
 
 ## A Salute
 
+What I have learned so far is all thanks to the written works of great scientists and engineers around the world  (their books, articles, code). 
 
-What I have learned so far is all thanks to the written works 
-of great scientists and engineers around the world 
-(their books, articles, code). 
-
-I would not have been where I am without all the 
-great open-source software available to everyone. 
-I try to contribute and give back as much as I can. 
-
+I would not be where I am today without the great open-source software available to everyone.  I contribute and give back as much as I can. 
 
 Me on: 
 [Twitter ](http://twitter.com/shailesh1729) |
