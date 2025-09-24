@@ -5,3 +5,5 @@ chapter: true
 ---
 
 Resources, guides, and posts about JavaScript programming.
+
+{{% children %}}

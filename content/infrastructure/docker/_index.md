@@ -4,5 +4,4 @@ weight: 2
 chapter: true
 ---
 
-
-
+{{% children %}}

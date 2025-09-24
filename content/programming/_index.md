@@ -5,3 +5,5 @@ chapter: true
 ---
 
 Welcome to the Programming section. Explore languages and tutorials below.
+
+{{% children %}}
