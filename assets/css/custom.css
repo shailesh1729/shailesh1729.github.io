@@ -5,3 +5,55 @@ h1 {
 h2 {
   font-size: 2rem;   /* Adjust as needed */
 }
+
+/* Attempt to override main content width constraints */
+main, .td-main, .body-inner, #R-body-inner, .flex-block-wrapper {
+  max-width: none !important; /* Remove any max-width on the main content area */
+  width: 100% !important; /* Ensure it takes full width */
+  display: block !important; /* Ensure it doesn't interfere with my flexbox */
+}
+
+.article-with-toc-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust as needed */
+}
+
+.article-content-wrapper {
+  flex: 1; /* Takes up remaining space */
+  max-width: 900px; /* Set a max-width for the main content */
+  margin: 0 auto; /* Center the content */
+}
+
+.right-toc-sidebar {
+  width: 350px; /* Further increased width */
+  position: sticky;
+  top: 20px; /* Adjust as needed for spacing from top */
+  align-self: flex-start; /* Sticks to the top of the flex container */
+  max-height: calc(100vh - 40px); /* Adjust for header/footer if necessary */
+  overflow-y: auto; /* Enable scrolling for long TOCs */
+  padding: 15px;
+  border-left: 1px solid #eee; /* Optional: separator line */
+  box-sizing: border-box; /* Added to include padding in width calculation */
+}
+
+/* Basic styling for TOC links */
+.right-toc-sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.right-toc-sidebar ul ul {
+  padding-left: 0.5em; /* Reduced indentation for sub-levels */
+}
+
+.right-toc-sidebar a {
+  text-decoration: none;
+  color: inherit;
+  word-break: break-word; /* Added to prevent horizontal scrollbar */
+  white-space: normal; /* Ensure text wraps */
+}
+
+.right-toc-sidebar a:hover {
+  text-decoration: underline;
+}
