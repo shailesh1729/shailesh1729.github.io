@@ -20,13 +20,14 @@ main, .td-main, .body-inner, #R-body-inner, .flex-block-wrapper {
 }
 
 .article-content-wrapper {
-  flex: 1; /* Takes up remaining space */
+  flex: 2; /* Content takes twice as much space as sidebar */
   max-width: 900px; /* Set a max-width for the main content */
   margin: 0 auto; /* Center the content */
 }
 
 .right-toc-sidebar {
-  width: 350px; /* Further increased width */
+  flex: 1; /* Sidebar takes one unit of space */
+  max-width: 450px; /* Max width for sidebar (half of 900px) */
   position: sticky;
   top: 20px; /* Adjust as needed for spacing from top */
   align-self: flex-start; /* Sticks to the top of the flex container */
@@ -56,4 +57,28 @@ main, .td-main, .body-inner, #R-body-inner, .flex-block-wrapper {
 
 .right-toc-sidebar a:hover {
   text-decoration: underline;
+}
+
+/* Hide right sidebar when printing */
+@media print {
+  .right-toc-sidebar {
+    display: none;
+  }
+  .article-content-wrapper {
+    max-width: 100% !important; /* Allow content to take full width when printing */
+  }
+}
+
+/* Hide right sidebar on mobile screens */
+@media (max-width: 1200px) {
+  .right-toc-sidebar {
+    display: none;
+  }
+  .article-content-wrapper {
+    max-width: 100% !important; /* Allow content to take full width on mobile */
+  }
+  .article-with-toc-container {
+    flex-direction: column; /* Stack content and sidebar vertically if sidebar was visible */
+    gap: 0;
+  }
 }
