@@ -1,3 +1,4 @@
+{{ if not .Params.hideEdit }}
 {{ $repoURL := replaceRE "/content$" "" site.Params.editPost.URL }}
 {{ $editText := site.Params.editPost.Text | default "Suggest Changes" }}
 {{ $appendFilePath := site.Params.editPost.appendFilePath | default true }}
@@ -9,4 +10,5 @@
       <i class="fab fa-github"></i> {{ $editText }}
     </a>
   </div>
+{{ end }}
 {{ end }}

@@ -12,9 +12,13 @@
         {{- partial "content-footer.html" . }}
         {{ if not .Params.chapter }}
           {{- partial "share.html" . }}
+        {{ end }}
+        {{ if not .Params.chapter }}
+          {{- partial "edit-post.html" . }}
+        {{ end }}
+        {{ if not .Params.chapter }}
           {{- partial "comments.html" . }}
         {{ end }}
-        {{- partial "edit-post.html" . }}
       </footer>
     </article>
   </div>
