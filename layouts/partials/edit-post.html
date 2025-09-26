@@ -1,0 +1,12 @@
+{{ $repoURL := replaceRE "/content$" "" site.Params.editPost.URL }}
+{{ $editText := site.Params.editPost.Text | default "Suggest Changes" }}
+{{ $appendFilePath := site.Params.editPost.appendFilePath | default true }}
+{{ $branch := site.Params.editPost.Branch | default "main" }}
+{{ if and $repoURL $appendFilePath }}
+  {{ $filePath := printf "content/%s" .File.Path }}
+  <div class="edit-on-github" style="margin: 1em 0;">
+    <a href="{{ $repoURL }}/edit/{{ $branch }}/{{ $filePath }}" target="_blank" rel="noopener" class="button">
+      <i class="fab fa-github"></i> {{ $editText }}
+    </a>
+  </div>
+{{ end }}
