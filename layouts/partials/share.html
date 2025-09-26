@@ -1,0 +1,22 @@
+<div class="share-buttons" style="margin: 2em 0;">
+  <span>Share: </span>
+  <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener" title="Share on Twitter">
+    <i class="fab fa-twitter"></i> Twitter
+  </a>
+  |
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" rel="noopener" title="Share on Facebook">
+    <i class="fab fa-facebook"></i> Facebook
+  </a>
+  |
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" rel="noopener" title="Share on LinkedIn">
+    <i class="fab fa-linkedin"></i> LinkedIn
+  </a>
+  |
+  <a href="https://wa.me/?text={{ .Permalink }}" target="_blank" rel="noopener" title="Share on WhatsApp">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+  |
+  <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" title="Share by Email">
+    <i class="fas fa-envelope"></i> Email
+  </a>
+</div>
