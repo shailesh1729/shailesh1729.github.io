@@ -139,3 +139,4 @@ _site/*
 public
 
 .hugo*
+.DS_Store
