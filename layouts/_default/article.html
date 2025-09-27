@@ -1,29 +1,30 @@
-
 <div class="article-with-toc-container">
   <div class="article-content-wrapper">
     <article class="default">
       <header class="headline">
         {{- partial "content-header.html" . }}
       </header>
-    {{ partial "heading-pre.html" . }}{{ partial "heading.html" . }}{{ partial "heading-post.html" . }}
+      {{ partial "heading-pre.html" . }}{{ partial "heading.html" . }}{{ partial "heading-post.html" . }}
 
-    {{ partial "article-content.html" . }}
+      {{ partial "article-content.html" . }}
       <footer class="footline">
         {{- partial "content-footer.html" . }}
         {{ if not .Params.chapter }}
-          {{- partial "share.html" . }}
+        {{- partial "share.html" . }}
         {{ end }}
         {{ if not .Params.chapter }}
-          {{- partial "edit-post.html" . }}
+        {{- partial "edit-post.html" . }}
         {{ end }}
         {{ if not .Params.chapter }}
-          {{- partial "comments.html" . }}
+        {{- partial "comments.html" . }}
         {{ end }}
       </footer>
     </article>
   </div>
+  {{ if not .Params.chapter }}
   <aside class="right-toc-sidebar">
     <h3>Contents</h3>
     {{ .TableOfContents }}
   </aside>
+  {{ end }}
 </div>
