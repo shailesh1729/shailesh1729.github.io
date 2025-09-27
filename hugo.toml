@@ -37,7 +37,7 @@ page = ["HTML"]
 
 # Configuration for the Relearn theme
 [params]
-themeVariant = ["sienna", "auto", "zen-light", "zen-dark"]
+themeVariant = ["auto", "sienna", "zen-light", "zen-dark"]
 themeVariantAuto = ["zen-light", "zen-dark"]
  # Set the title of the sidebar menu
 titleSeparator = "::"
